@@ -1,0 +1,415 @@
+{
+  "analysis_timestamp": "2025-08-23T20:35:58.313678",
+  "total_features_analyzed": 204,
+  "quality_summary": {
+    "high_quality": 93,
+    "medium_quality": 111,
+    "low_quality": 0
+  },
+  "issues_detected": [
+    {
+      "feature_name": "gender",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "SeniorCitizen",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "Partner",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "Dependents",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "PhoneService",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "PaperlessBilling",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "Churn",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "MultipleLines__No phone service",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "MultipleLines__Yes",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "InternetService__Fiber optic",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "InternetService__No",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "OnlineSecurity__No internet service",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "OnlineSecurity__Yes",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "OnlineBackup__No internet service",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "OnlineBackup__Yes",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "DeviceProtection__No internet service",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "DeviceProtection__Yes",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "TechSupport__No internet service",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "TechSupport__Yes",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "StreamingTV__No internet service",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "StreamingTV__Yes",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "StreamingMovies__No internet service",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "StreamingMovies__Yes",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "Contract__One year",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "Contract__Two year",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "PaymentMethod__Credit card (automatic)",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "PaymentMethod__Electronic check",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "PaymentMethod__Mailed check",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "tenure_binned",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.001
+    },
+    {
+      "feature_name": "tenure_bin_New",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "tenure_bin_1-2Years",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "tenure_bin_2-4Years",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "tenure_bin_4-6Years",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "senior_partner",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "high_charges_flag",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "long_tenure_flag",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "education",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "education.num",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "occupation",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "sex",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "income",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "workclass__Federal-gov",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "workclass__Local-gov",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "workclass__Never-worked",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "workclass__Private",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "workclass__Self-emp-inc",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "workclass__Self-emp-not-inc",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "workclass__State-gov",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "workclass__Without-pay",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "marital.status__Married-AF-spouse",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "marital.status__Married-civ-spouse",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "marital.status__Married-spouse-absent",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "marital.status__Never-married",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "marital.status__Separated",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "marital.status__Widowed",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "relationship__Not-in-family",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "relationship__Other-relative",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "relationship__Own-child",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "relationship__Unmarried",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "relationship__Wife",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "race__Asian-Pac-Islander",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "race__Black",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "race__Other",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "race__White",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "age_binned",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "age_bin_Young",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "age_bin_Adult",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "age_bin_MiddleAge",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "age_bin_Senior",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "age_bin_Elder",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "high_earner_potential",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "education_zscore",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "education_percentile",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "education.num_zscore",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "education.num_percentile",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "education.num_log",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "occupation_zscore",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "occupation_percentile",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "poly_capital.gain_capital.loss",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    },
+    {
+      "feature_name": "poly_education_education.num",
+      "issue": "Very low uniqueness",
+      "uniqueness": 0.0
+    }
+  ],
+  "recommendations": [
+    "Feature quality needs improvement - review data processing pipeline",
+    "Address detected quality issues before model training"
+  ]
+}

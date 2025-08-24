@@ -1,0 +1,97 @@
+QUICK SETUP STEPS FOR GIT DATA VERSIONING
+==========================================
+Students: 2024ab05134, 2024aa05664
+
+STEP 1: INSTALL GIT
+-------------------
+Run this command in Terminal:
+   xcode-select --install
+
+Wait for installation to complete, then verify:
+   git --version
+
+STEP 2: GITHUB REPOSITORY READY
+---------------------------------
+✅ Using existing repository: https://github.com/puneetsinha/BitsPilaniAIML
+This repository is already set up and ready to receive your DMML project!
+
+STEP 3: RUN AUTOMATED SETUP
+----------------------------
+Option A - Direct GitHub Push (RECOMMENDED):
+   cd /Users/puneetsinha/DMML
+   python directory_8_data_versioning/push_to_github.py
+
+Option B - Interactive Python Script:
+   cd /Users/puneetsinha/DMML
+   python directory_8_data_versioning/git_versioning_setup.py
+
+Option C - Quick Shell Script:
+   cd /Users/puneetsinha/DMML
+   ./directory_8_data_versioning/manual_git_setup.sh
+
+Option A is recommended as it's configured for your specific repository!
+
+STEP 4: VERIFY SETUP
+---------------------
+Check if it worked:
+   git status
+   git tag -l
+   git remote -v
+
+You should see:
+- Git repository initialized
+- Version tags created
+- GitHub remote configured
+
+STEP 5: PUSH TO GITHUB
+-----------------------
+If not done automatically:
+   git push -u origin main
+   git push origin --tags
+
+STEP 6: VERIFY ON GITHUB
+-------------------------
+1. Go to your GitHub repository
+2. Check that files are uploaded
+3. Click "Tags" to see your versions
+4. Verify everything looks correct
+
+THAT'S IT! Your ML pipeline is now version controlled with Git and backed up on GitHub.
+
+TROUBLESHOOTING
+===============
+
+Git command not found:
+- Make sure Xcode command line tools are installed
+- Restart Terminal after installation
+
+Permission denied to GitHub:
+- Set up SSH keys or use personal access token
+- Check GitHub authentication documentation
+
+Large files warning:
+- Files over 100MB might need Git LFS
+- Or add them to .gitignore if not needed
+
+WHAT YOU GET
+============
+✅ Complete project backup on GitHub
+✅ Version history of all your work
+✅ Easy collaboration with team members
+✅ Professional version control system
+✅ Ability to rollback to any previous version
+✅ Tagged versions for major milestones
+
+NEXT STEPS
+==========
+1. Create new versions as you make changes:
+   git add .
+   git commit -m "Description of changes"
+   git tag -a v1.7-new-feature -m "Added new feature"
+   git push origin main --tags
+
+2. Share repository with team members
+
+3. Use GitHub's collaboration features (issues, pull requests, etc.)
+
+Your assignment is now professionally version controlled! 🎉

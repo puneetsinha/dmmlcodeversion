@@ -1,0 +1,603 @@
+"""
+Validation Orchestrator - Main script to run comprehensive data validation.
+"""
+
+import os
+import json
+import pandas as pd
+from datetime import datetime
+from pathlib import Path
+from typing import Dict, List
+import sys
+
+# Add current directory to path
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+from data_validator import DataValidator
+from validation_config import validation_config
+
+
+class ValidationOrchestrator:
+    """Orchestrate validation across all datasets in the data lake."""
+    
+    def __init__(self):
+        """Initialize validation orchestrator."""
+        self.validator = DataValidator()
+        self.config = validation_config
+        self.all_results = {}
+        
+    def find_datasets(self) -> List[Dict[str, str]]:
+        """
+        Find all datasets in the data lake.
+        
+        Returns:
+            List of dataset information dictionaries
+        """
+        datasets = []
+        
+        if not os.path.exists(self.config.DATA_LAKE_DIR):
+            print(f" Data lake directory not found: {self.config.DATA_LAKE_DIR}")
+            return datasets
+        
+        # Walk through data lake structure
+        for root, dirs, files in os.walk(self.config.DATA_LAKE_DIR):
+            for file in files:
+                if file.endswith('.parquet'):
+                    file_path = os.path.join(root, file)
+                    
+                    # Extract dataset name from filename
+                    if 'telco_customer_churn' in file:
+                        dataset_name = 'telco_customer_churn'
+                    elif 'adult_census_income' in file:
+                        dataset_name = 'adult_census_income'
+                    else:
+                        dataset_name = file.replace('.parquet', '').split('_')[0]
+                    
+                    datasets.append({
+                        'name': dataset_name,
+                        'path': file_path,
+                        'size_mb': round(os.path.getsize(file_path) / (1024*1024), 2)
+                    })
+        
+        return datasets
+    
+    def run_validation_suite(self) -> Dict:
+        """
+        Run complete validation suite on all datasets.
+        
+        Returns:
+            Complete validation results
+        """
+        print(" Starting Comprehensive Data Validation Suite")
+        print("=" * 60)
+        
+        # Find datasets
+        datasets = self.find_datasets()
+        
+        if not datasets:
+            print(" No datasets found for validation")
+            return {}
+        
+        print(f" Found {len(datasets)} datasets for validation:")
+        for dataset in datasets:
+            print(f"   {dataset['name']} ({dataset['size_mb']} MB)")
+        
+        # Validate each dataset
+        validation_results = {
+            "validation_summary": {
+                "timestamp": datetime.now().isoformat(),
+                "total_datasets": len(datasets),
+                "datasets_validated": 0,
+                "overall_quality": {}
+            },
+            "dataset_results": {}
+        }
+        
+        quality_scores = []
+        
+        for dataset in datasets:
+            try:
+                print(f"\n{'='*60}")
+                result = self.validator.validate_dataset(dataset['path'], dataset['name'])
+                validation_results["dataset_results"][dataset['name']] = result
+                validation_results["validation_summary"]["datasets_validated"] += 1
+                
+                # Collect quality score
+                quality_scores.append(result["quality_score"]["overall_score"])
+                
+                # Print summary
+                self._print_dataset_summary(dataset['name'], result)
+                
+            except Exception as e:
+                print(f" Validation failed for {dataset['name']}: {str(e)}")
+                validation_results["dataset_results"][dataset['name']] = {
+                    "error": str(e),
+                    "status": "FAILED"
+                }
+        
+        # Calculate overall quality metrics
+        if quality_scores:
+            validation_results["validation_summary"]["overall_quality"] = {
+                "average_score": round(sum(quality_scores) / len(quality_scores), 3),
+                "min_score": round(min(quality_scores), 3),
+                "max_score": round(max(quality_scores), 3),
+                "grade": self.validator._get_quality_grade(sum(quality_scores) / len(quality_scores))
+            }
+        
+        self.all_results = validation_results
+        return validation_results
+    
+    def _print_dataset_summary(self, dataset_name: str, results: Dict):
+        """Print summary for a dataset validation."""
+        print(f"\n VALIDATION SUMMARY: {dataset_name}")
+        print("-" * 40)
+        
+        quality = results["quality_score"]
+        print(f"Quality Score: {quality['overall_score']} ({quality['grade']})")
+        
+        completeness = results["completeness_check"]["overall_completeness"]
+        print(f"Completeness: {completeness:.1%}")
+        
+        duplicates = results["duplicate_detection"]["duplicate_ratio"]
+        print(f"Duplicate Rate: {duplicates:.1%}")
+        
+        schema_status = results["schema_validation"]["status"]
+        print(f"Schema Status: {schema_status}")
+        
+        # Count issues
+        issues = 0
+        if results["schema_validation"]["status"] == "FAIL":
+            issues += len(results["schema_validation"]["issues"])
+        
+        range_issues = len([v for v in results["range_validation"]["range_violations"].values() if v["status"] == "FAIL"])
+        categorical_issues = len([v for v in results["categorical_validation"]["categorical_violations"].values() if v["status"] == "FAIL"])
+        
+        issues += range_issues + categorical_issues
+        
+        if issues == 0:
+            print(" No critical issues found")
+        else:
+            print(f"  {issues} issues detected")
+    
+    def generate_excel_report(self, results: Dict) -> str:
+        """
+        Generate comprehensive Excel report.
+        
+        Args:
+            results: Validation results
+            
+        Returns:
+            Path to Excel report
+        """
+        report_file = os.path.join(
+            self.config.VALIDATION_REPORTS_DIR,
+            f"data_quality_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.xlsx"
+        )
+        
+        with pd.ExcelWriter(report_file, engine='openpyxl') as writer:
+            # Summary sheet
+            summary_data = []
+            for dataset_name, dataset_result in results["dataset_results"].items():
+                if "error" not in dataset_result:
+                    quality = dataset_result["quality_score"]
+                    completeness = dataset_result["completeness_check"]["overall_completeness"]
+                    duplicates = dataset_result["duplicate_detection"]["duplicate_ratio"]
+                    
+                    summary_data.append({
+                        'Dataset': dataset_name,
+                        'Quality Score': quality["overall_score"],
+                        'Grade': quality["grade"],
+                        'Completeness': completeness,
+                        'Duplicate Rate': duplicates,
+                        'Schema Status': dataset_result["schema_validation"]["status"],
+                        'Total Rows': dataset_result["summary_statistics"]["basic_info"]["rows"],
+                        'Total Columns': dataset_result["summary_statistics"]["basic_info"]["columns"]
+                    })
+            
+            summary_df = pd.DataFrame(summary_data)
+            summary_df.to_excel(writer, sheet_name='Summary', index=False)
+            
+            # Individual dataset sheets
+            for dataset_name, dataset_result in results["dataset_results"].items():
+                if "error" not in dataset_result:
+                    # Completeness details
+                    completeness_data = []
+                    for col, details in dataset_result["completeness_check"]["column_completeness"].items():
+                        completeness_data.append({
+                            'Column': col,
+                            'Missing Count': details["missing_count"],
+                            'Completeness': details["completeness"],
+                            'Status': details["status"]
+                        })
+                    
+                    completeness_df = pd.DataFrame(completeness_data)
+                    sheet_name = f"{dataset_name[:25]}_completeness"
+                    completeness_df.to_excel(writer, sheet_name=sheet_name, index=False)
+                    
+                    # Outlier analysis
+                    outlier_data = []
+                    for col, details in dataset_result["outlier_detection"]["outlier_analysis"].items():
+                        outlier_data.append({
+                            'Column': col,
+                            'IQR Outliers': details["iqr_outliers"],
+                            'Z-Score Outliers': details["z_score_outliers"],
+                            'Mean': details["statistics"]["mean"],
+                            'Std': details["statistics"]["std"],
+                            'Min': details["statistics"]["min"],
+                            'Max': details["statistics"]["max"]
+                        })
+                    
+                    if outlier_data:
+                        outlier_df = pd.DataFrame(outlier_data)
+                        sheet_name = f"{dataset_name[:25]}_outliers"
+                        outlier_df.to_excel(writer, sheet_name=sheet_name, index=False)
+        
+        print(f" Excel report generated: {report_file}")
+        return report_file
+    
+    def generate_json_report(self, results: Dict) -> str:
+        """
+        Generate detailed JSON report.
+        
+        Args:
+            results: Validation results
+            
+        Returns:
+            Path to JSON report
+        """
+        report_file = os.path.join(
+            self.config.VALIDATION_REPORTS_DIR,
+            f"validation_results_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+        )
+        
+        with open(report_file, 'w') as f:
+            json.dump(results, f, indent=2, default=str)
+        
+        print(f" JSON report generated: {report_file}")
+        return report_file
+    
+    def generate_csv_report(self, results: Dict) -> List[str]:
+        """
+        Generate comprehensive CSV reports for data quality assessment.
+        Students: 2024ab05134, 2024aa05664
+        
+        This method creates multiple CSV files as required by the assignment:
+        1. Summary report with overall quality metrics
+        2. Detailed issues report with resolutions
+        3. Column-level analysis report
+        
+        Args:
+            results: Validation results
+            
+        Returns:
+            List of paths to generated CSV files
+        """
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        csv_files = []
+        
+        # 1. Summary CSV Report
+        summary_file = os.path.join(
+            self.config.VALIDATION_REPORTS_DIR,
+            f"data_quality_summary_{timestamp}.csv"
+        )
+        
+        summary_data = []
+        for dataset_name, dataset_result in results["dataset_results"].items():
+            if "error" not in dataset_result:
+                quality = dataset_result["quality_score"]
+                basic_info = dataset_result["summary_statistics"]["basic_info"]
+                completeness = dataset_result["completeness_check"]["overall_completeness"]
+                duplicates = dataset_result["duplicate_detection"]["duplicate_ratio"]
+                
+                # Count issues
+                schema_issues = len(dataset_result["schema_validation"].get("issues", []))
+                range_violations = sum(1 for v in dataset_result["range_validation"]["range_violations"].values() 
+                                     if v["status"] == "FAIL")
+                categorical_violations = sum(1 for v in dataset_result["categorical_validation"]["categorical_violations"].values() 
+                                           if v["status"] == "FAIL")
+                total_outliers = sum(details["iqr_outliers"] + details["z_score_outliers"] 
+                                   for details in dataset_result["outlier_detection"]["outlier_analysis"].values())
+                
+                summary_data.append({
+                    'Dataset_Name': dataset_name,
+                    'Quality_Score': round(quality["overall_score"], 3),
+                    'Quality_Grade': quality["grade"],
+                    'Total_Rows': basic_info["rows"],
+                    'Total_Columns': basic_info["columns"],
+                    'Completeness_Percentage': round(completeness * 100, 2),
+                    'Duplicate_Rate_Percentage': round(duplicates * 100, 2),
+                    'Schema_Issues_Count': schema_issues,
+                    'Range_Violations_Count': range_violations,
+                    'Categorical_Violations_Count': categorical_violations,
+                    'Total_Outliers_Detected': total_outliers,
+                    'Schema_Status': dataset_result["schema_validation"]["status"],
+                    'Overall_Status': 'PASS' if quality["overall_score"] >= 0.8 else 'REVIEW_REQUIRED'
+                })
+        
+        summary_df = pd.DataFrame(summary_data)
+        summary_df.to_csv(summary_file, index=False)
+        csv_files.append(summary_file)
+        
+        # 2. Detailed Issues and Resolutions CSV
+        issues_file = os.path.join(
+            self.config.VALIDATION_REPORTS_DIR,
+            f"data_quality_issues_resolutions_{timestamp}.csv"
+        )
+        
+        issues_data = []
+        for dataset_name, dataset_result in results["dataset_results"].items():
+            if "error" not in dataset_result:
+                
+                # Schema validation issues
+                schema_validation = dataset_result["schema_validation"]
+                if schema_validation["status"] == "FAIL":
+                    for issue in schema_validation.get("issues", []):
+                        issues_data.append({
+                            'Dataset': dataset_name,
+                            'Issue_Type': 'Schema_Validation',
+                            'Issue_Category': 'Critical',
+                            'Column_Name': 'Multiple',
+                            'Issue_Description': issue,
+                            'Severity': 'High',
+                            'Recommended_Resolution': 'Review data source schema and update transformation logic',
+                            'Impact': 'May cause processing failures in downstream components'
+                        })
+                
+                # Missing value issues
+                completeness = dataset_result["completeness_check"]["column_completeness"]
+                for col, details in completeness.items():
+                    if details["status"] == "FAIL":
+                        missing_percentage = (1 - details["completeness"]) * 100
+                        issues_data.append({
+                            'Dataset': dataset_name,
+                            'Issue_Type': 'Missing_Values',
+                            'Issue_Category': 'Data_Quality',
+                            'Column_Name': col,
+                            'Issue_Description': f'{details["missing_count"]} missing values ({missing_percentage:.1f}%)',
+                            'Severity': 'High' if missing_percentage > 20 else 'Medium',
+                            'Recommended_Resolution': 'Apply appropriate imputation strategy (median for numerical, mode for categorical)',
+                            'Impact': 'Missing values can reduce model performance and introduce bias'
+                        })
+                
+                # Range validation issues
+                range_violations = dataset_result["range_validation"]["range_violations"]
+                for col, violation in range_violations.items():
+                    if violation["status"] == "FAIL":
+                        issues_data.append({
+                            'Dataset': dataset_name,
+                            'Issue_Type': 'Range_Violation',
+                            'Issue_Category': 'Data_Quality',
+                            'Column_Name': col,
+                            'Issue_Description': f'Values outside expected range. Violations: {violation["violation_count"]}',
+                            'Severity': 'Medium',
+                            'Recommended_Resolution': 'Investigate data source, apply outlier treatment or update range constraints',
+                            'Impact': 'Unexpected values may indicate data collection issues or outliers'
+                        })
+                
+                # Categorical validation issues
+                cat_violations = dataset_result["categorical_validation"]["categorical_violations"]
+                for col, violation in cat_violations.items():
+                    if violation["status"] == "FAIL":
+                        issues_data.append({
+                            'Dataset': dataset_name,
+                            'Issue_Type': 'Categorical_Violation',
+                            'Issue_Category': 'Data_Quality',
+                            'Column_Name': col,
+                            'Issue_Description': f'Unexpected categorical values found: {violation["unexpected_values"][:3]}...',
+                            'Severity': 'Medium',
+                            'Recommended_Resolution': 'Update categorical mappings or investigate new category validity',
+                            'Impact': 'Unexpected categories may cause encoding issues in ML pipelines'
+                        })
+                
+                # Duplicate issues
+                if dataset_result["duplicate_detection"]["duplicate_ratio"] > 0.01:  # More than 1%
+                    duplicate_count = dataset_result["duplicate_detection"]["duplicate_count"]
+                    issues_data.append({
+                        'Dataset': dataset_name,
+                        'Issue_Type': 'Duplicate_Records',
+                        'Issue_Category': 'Data_Quality',
+                        'Column_Name': 'All',
+                        'Issue_Description': f'{duplicate_count} duplicate records found',
+                        'Severity': 'Low' if duplicate_count < 100 else 'Medium',
+                        'Recommended_Resolution': 'Review and remove duplicate records, investigate root cause',
+                        'Impact': 'Duplicates can skew statistical analysis and model training'
+                    })
+                
+                # Outlier issues (only report if excessive)
+                outlier_analysis = dataset_result["outlier_detection"]["outlier_analysis"]
+                for col, details in outlier_analysis.items():
+                    total_outliers = details["iqr_outliers"] + details["z_score_outliers"]
+                    total_values = dataset_result["summary_statistics"]["basic_info"]["rows"]
+                    outlier_percentage = (total_outliers / total_values) * 100
+                    
+                    if outlier_percentage > 5:  # More than 5% outliers
+                        issues_data.append({
+                            'Dataset': dataset_name,
+                            'Issue_Type': 'Excessive_Outliers',
+                            'Issue_Category': 'Statistical',
+                            'Column_Name': col,
+                            'Issue_Description': f'{total_outliers} outliers detected ({outlier_percentage:.1f}%)',
+                            'Severity': 'Low',
+                            'Recommended_Resolution': 'Investigate outliers - may be data errors or legitimate extreme values',
+                            'Impact': 'High outlier rate may indicate data quality issues or legitimate variance'
+                        })
+        
+        issues_df = pd.DataFrame(issues_data)
+        issues_df.to_csv(issues_file, index=False)
+        csv_files.append(issues_file)
+        
+        # 3. Column-Level Analysis CSV
+        columns_file = os.path.join(
+            self.config.VALIDATION_REPORTS_DIR,
+            f"column_level_analysis_{timestamp}.csv"
+        )
+        
+        column_data = []
+        for dataset_name, dataset_result in results["dataset_results"].items():
+            if "error" not in dataset_result:
+                
+                # Combine column information
+                completeness = dataset_result["completeness_check"]["column_completeness"]
+                outliers = dataset_result["outlier_detection"]["outlier_analysis"]
+                
+                for col in completeness.keys():
+                    col_info = {
+                        'Dataset': dataset_name,
+                        'Column_Name': col,
+                        'Missing_Count': completeness[col]["missing_count"],
+                        'Completeness_Percentage': round(completeness[col]["completeness"] * 100, 2),
+                        'Completeness_Status': completeness[col]["status"]
+                    }
+                    
+                    # Add outlier information if available (numerical columns)
+                    if col in outliers:
+                        outlier_info = outliers[col]
+                        col_info.update({
+                            'IQR_Outliers': outlier_info["iqr_outliers"],
+                            'Z_Score_Outliers': outlier_info["z_score_outliers"],
+                            'Mean_Value': round(outlier_info["statistics"]["mean"], 3),
+                            'Std_Deviation': round(outlier_info["statistics"]["std"], 3),
+                            'Min_Value': outlier_info["statistics"]["min"],
+                            'Max_Value': outlier_info["statistics"]["max"]
+                        })
+                    else:
+                        # For categorical columns
+                        col_info.update({
+                            'IQR_Outliers': 'N/A',
+                            'Z_Score_Outliers': 'N/A',
+                            'Mean_Value': 'N/A',
+                            'Std_Deviation': 'N/A',
+                            'Min_Value': 'N/A',
+                            'Max_Value': 'N/A'
+                        })
+                    
+                    column_data.append(col_info)
+        
+        columns_df = pd.DataFrame(column_data)
+        columns_df.to_csv(columns_file, index=False)
+        csv_files.append(columns_file)
+        
+        print(f" CSV Summary report generated: {summary_file}")
+        print(f" CSV Issues & resolutions report generated: {issues_file}")
+        print(f" CSV Column analysis report generated: {columns_file}")
+        
+        return csv_files
+    
+    def generate_text_summary(self, results: Dict) -> str:
+        """
+        Generate human-readable text summary.
+        
+        Args:
+            results: Validation results
+            
+        Returns:
+            Path to text summary
+        """
+        report_file = os.path.join(
+            self.config.VALIDATION_REPORTS_DIR,
+            f"validation_summary_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
+        )
+        
+        summary_lines = []
+        summary_lines.append(" DATA QUALITY VALIDATION SUMMARY")
+        summary_lines.append("=" * 60)
+        summary_lines.append(f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+        summary_lines.append("")
+        
+        # Overall summary
+        overall = results["validation_summary"]["overall_quality"]
+        if overall:
+            summary_lines.append(" OVERALL QUALITY METRICS")
+            summary_lines.append("-" * 30)
+            summary_lines.append(f"Average Quality Score: {overall['average_score']} ({overall['grade']})")
+            summary_lines.append(f"Best Performing: {overall['max_score']}")
+            summary_lines.append(f"Lowest Performing: {overall['min_score']}")
+            summary_lines.append("")
+        
+        # Dataset details
+        summary_lines.append(" DATASET DETAILS")
+        summary_lines.append("-" * 30)
+        
+        for dataset_name, dataset_result in results["dataset_results"].items():
+            if "error" not in dataset_result:
+                summary_lines.append(f"\n  {dataset_name.upper()}")
+                summary_lines.append("-" * 20)
+                
+                quality = dataset_result["quality_score"]
+                summary_lines.append(f"Quality Score: {quality['overall_score']} ({quality['grade']})")
+                
+                basic_info = dataset_result["summary_statistics"]["basic_info"]
+                summary_lines.append(f"Dimensions: {basic_info['rows']:,} rows × {basic_info['columns']} columns")
+                
+                completeness = dataset_result["completeness_check"]["overall_completeness"]
+                summary_lines.append(f"Completeness: {completeness:.1%}")
+                
+                duplicates = dataset_result["duplicate_detection"]["duplicate_ratio"]
+                summary_lines.append(f"Duplicate Rate: {duplicates:.1%}")
+                
+                # Issues summary
+                issues = []
+                if dataset_result["schema_validation"]["status"] == "FAIL":
+                    issues.extend(dataset_result["schema_validation"]["issues"])
+                
+                range_violations = [k for k, v in dataset_result["range_validation"]["range_violations"].items() if v["status"] == "FAIL"]
+                if range_violations:
+                    issues.append(f"Range violations in: {', '.join(range_violations)}")
+                
+                categorical_violations = [k for k, v in dataset_result["categorical_validation"]["categorical_violations"].items() if v["status"] == "FAIL"]
+                if categorical_violations:
+                    issues.append(f"Categorical violations in: {', '.join(categorical_violations)}")
+                
+                if issues:
+                    summary_lines.append("  Issues:")
+                    for issue in issues:
+                        summary_lines.append(f"  • {issue}")
+                else:
+                    summary_lines.append(" No critical issues detected")
+        
+        summary_text = "\n".join(summary_lines)
+        
+        with open(report_file, 'w') as f:
+            f.write(summary_text)
+        
+        print(f" Text summary generated: {report_file}")
+        return summary_text
+    
+    def run_complete_validation(self) -> Dict:
+        """
+        Run complete validation pipeline and generate all reports.
+        
+        Returns:
+            Validation results
+        """
+        # Run validation
+        results = self.run_validation_suite()
+        
+        if not results:
+            return results
+        
+        print(f"\n{'='*60}")
+        print(" GENERATING VALIDATION REPORTS")
+        print("=" * 60)
+        
+        # Generate reports
+        excel_file = self.generate_excel_report(results)
+        json_file = self.generate_json_report(results)
+        csv_files = self.generate_csv_report(results)  # Generate required CSV reports
+        summary_text = self.generate_text_summary(results)
+        
+        print(f"\n Validation completed successfully!")
+        print(f" Reports generated in: {self.config.VALIDATION_REPORTS_DIR}")
+        
+        return results
+
+
+def main():
+    """Main function to run data validation."""
+    orchestrator = ValidationOrchestrator()
+    results = orchestrator.run_complete_validation()
+    return results
+
+
+if __name__ == "__main__":
+    main()

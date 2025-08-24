@@ -1,0 +1,24 @@
+{
+  "step_id": "data_ingestion",
+  "name": "Data Ingestion",
+  "status": "SUCCESS",
+  "start_time": "2025-08-23T21:13:46.549930",
+  "error": null,
+  "execution_time": 6.698506116867065,
+  "memory_usage_mb": 36.75,
+  "retry_count": 0,
+  "result": {
+    "start_time": "2025-08-23T21:13:47.273455",
+    "end_time": "2025-08-23T21:13:53.248139",
+    "duration": "5.97 seconds",
+    "kaggle_files": [
+      "/Users/puneetsinha/DMML/raw_data/kaggle_telco_churn.csv"
+    ],
+    "huggingface_files": [
+      "/Users/puneetsinha/DMML/raw_data/huggingface_census.csv"
+    ],
+    "total_files": 2,
+    "errors": []
+  },
+  "end_time": "2025-08-23T21:13:53.248436"
+}

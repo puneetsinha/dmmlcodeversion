@@ -1,0 +1,573 @@
+{
+  "dataset_name": "telco_customer_churn",
+  "original_shape": [
+    7043,
+    32
+  ],
+  "transformed_shape": [
+    7043,
+    100
+  ],
+  "features_created": 68,
+  "feature_definitions": {
+    "age_binned": {
+      "type": "binning",
+      "source_column": "age",
+      "bins": [
+        17,
+        25,
+        35,
+        50,
+        65,
+        90
+      ],
+      "labels": [
+        "Young",
+        "Adult",
+        "MiddleAge",
+        "Senior",
+        "Elder"
+      ],
+      "created_columns": [
+        "age_binned",
+        "age_bin_Young",
+        "age_bin_Adult",
+        "age_bin_MiddleAge",
+        "age_bin_Senior",
+        "age_bin_Elder"
+      ]
+    },
+    "high_earner_potential": {
+      "type": "composite",
+      "conditions": [
+        {
+          "column": "education-num",
+          "operator": ">=",
+          "value": 13
+        },
+        {
+          "column": "hours-per-week",
+          "operator": ">=",
+          "value": 40
+        },
+        {
+          "column": "age",
+          "operator": ">=",
+          "value": 25
+        }
+      ],
+      "logic": "all",
+      "created_columns": [
+        "high_earner_potential"
+      ]
+    },
+    "age_zscore": {
+      "type": "statistical",
+      "source_column": "age",
+      "transformation": "z_score",
+      "created_columns": [
+        "age_zscore"
+      ]
+    },
+    "age_percentile": {
+      "type": "statistical",
+      "source_column": "age",
+      "transformation": "percentile_rank",
+      "created_columns": [
+        "age_percentile"
+      ]
+    },
+    "education_zscore": {
+      "type": "statistical",
+      "source_column": "education",
+      "transformation": "z_score",
+      "created_columns": [
+        "education_zscore"
+      ]
+    },
+    "education_percentile": {
+      "type": "statistical",
+      "source_column": "education",
+      "transformation": "percentile_rank",
+      "created_columns": [
+        "education_percentile"
+      ]
+    },
+    "education.num_zscore": {
+      "type": "statistical",
+      "source_column": "education.num",
+      "transformation": "z_score",
+      "created_columns": [
+        "education.num_zscore"
+      ]
+    },
+    "education.num_percentile": {
+      "type": "statistical",
+      "source_column": "education.num",
+      "transformation": "percentile_rank",
+      "created_columns": [
+        "education.num_percentile"
+      ]
+    },
+    "occupation_zscore": {
+      "type": "statistical",
+      "source_column": "occupation",
+      "transformation": "z_score",
+      "created_columns": [
+        "occupation_zscore"
+      ]
+    },
+    "occupation_percentile": {
+      "type": "statistical",
+      "source_column": "occupation",
+      "transformation": "percentile_rank",
+      "created_columns": [
+        "occupation_percentile"
+      ]
+    },
+    "capital.gain_zscore": {
+      "type": "statistical",
+      "source_column": "capital.gain",
+      "transformation": "z_score",
+      "created_columns": [
+        "capital.gain_zscore"
+      ]
+    },
+    "capital.gain_percentile": {
+      "type": "statistical",
+      "source_column": "capital.gain",
+      "transformation": "percentile_rank",
+      "created_columns": [
+        "capital.gain_percentile"
+      ]
+    },
+    "capital.loss_zscore": {
+      "type": "statistical",
+      "source_column": "capital.loss",
+      "transformation": "z_score",
+      "created_columns": [
+        "capital.loss_zscore"
+      ]
+    },
+    "capital.loss_percentile": {
+      "type": "statistical",
+      "source_column": "capital.loss",
+      "transformation": "percentile_rank",
+      "created_columns": [
+        "capital.loss_percentile"
+      ]
+    },
+    "hours.per.week_zscore": {
+      "type": "statistical",
+      "source_column": "hours.per.week",
+      "transformation": "z_score",
+      "created_columns": [
+        "hours.per.week_zscore"
+      ]
+    },
+    "hours.per.week_percentile": {
+      "type": "statistical",
+      "source_column": "hours.per.week",
+      "transformation": "percentile_rank",
+      "created_columns": [
+        "hours.per.week_percentile"
+      ]
+    },
+    "native.country_zscore": {
+      "type": "statistical",
+      "source_column": "native.country",
+      "transformation": "z_score",
+      "created_columns": [
+        "native.country_zscore"
+      ]
+    },
+    "native.country_percentile": {
+      "type": "statistical",
+      "source_column": "native.country",
+      "transformation": "percentile_rank",
+      "created_columns": [
+        "native.country_percentile"
+      ]
+    },
+    "polynomial_features": {
+      "type": "polynomial",
+      "degree": 2,
+      "source_columns": [
+        "TotalCharges",
+        "charges_per_tenure",
+        "MonthlyCharges",
+        "charges_ratio",
+        "tenure",
+        "tenure_zscore",
+        "MonthlyCharges_zscore",
+        "charges_per_tenure_zscore",
+        "customerID_zscore",
+        "TotalCharges_zscore"
+      ],
+      "created_columns": [
+        "poly_TotalCharges_charges_per_tenure",
+        "poly_TotalCharges_MonthlyCharges",
+        "poly_TotalCharges_charges_ratio",
+        "poly_TotalCharges_tenure",
+        "poly_TotalCharges_tenure_zscore",
+        "poly_TotalCharges_MonthlyCharges_zscore",
+        "poly_TotalCharges_charges_per_tenure_zscore",
+        "poly_TotalCharges_customerID_zscore",
+        "poly_TotalCharges_TotalCharges_zscore",
+        "poly_charges_per_tenure_MonthlyCharges",
+        "poly_charges_per_tenure_charges_ratio",
+        "poly_charges_per_tenure_tenure",
+        "poly_charges_per_tenure_tenure_zscore",
+        "poly_charges_per_tenure_MonthlyCharges_zscore",
+        "poly_charges_per_tenure_charges_per_tenure_zscore",
+        "poly_charges_per_tenure_customerID_zscore",
+        "poly_charges_per_tenure_TotalCharges_zscore",
+        "poly_MonthlyCharges_charges_ratio",
+        "poly_MonthlyCharges_tenure",
+        "poly_MonthlyCharges_tenure_zscore",
+        "poly_MonthlyCharges_MonthlyCharges_zscore",
+        "poly_MonthlyCharges_charges_per_tenure_zscore",
+        "poly_MonthlyCharges_customerID_zscore",
+        "poly_MonthlyCharges_TotalCharges_zscore",
+        "poly_charges_ratio_tenure",
+        "poly_charges_ratio_tenure_zscore",
+        "poly_charges_ratio_MonthlyCharges_zscore",
+        "poly_charges_ratio_charges_per_tenure_zscore",
+        "poly_charges_ratio_customerID_zscore",
+        "poly_charges_ratio_TotalCharges_zscore",
+        "poly_tenure_tenure_zscore",
+        "poly_tenure_MonthlyCharges_zscore",
+        "poly_tenure_charges_per_tenure_zscore",
+        "poly_tenure_customerID_zscore",
+        "poly_tenure_TotalCharges_zscore",
+        "poly_tenure_zscore_MonthlyCharges_zscore",
+        "poly_tenure_zscore_charges_per_tenure_zscore",
+        "poly_tenure_zscore_customerID_zscore",
+        "poly_tenure_zscore_TotalCharges_zscore",
+        "poly_MonthlyCharges_zscore_charges_per_tenure_zscore",
+        "poly_MonthlyCharges_zscore_customerID_zscore",
+        "poly_MonthlyCharges_zscore_TotalCharges_zscore",
+        "poly_charges_per_tenure_zscore_customerID_zscore",
+        "poly_charges_per_tenure_zscore_TotalCharges_zscore",
+        "poly_customerID_zscore_TotalCharges_zscore"
+      ]
+    },
+    "tenure_binned": {
+      "type": "binning",
+      "source_column": "tenure",
+      "bins": [
+        0,
+        12,
+        24,
+        48,
+        72
+      ],
+      "labels": [
+        "New",
+        "1-2Years",
+        "2-4Years",
+        "4-6Years"
+      ],
+      "created_columns": [
+        "tenure_binned",
+        "tenure_bin_New",
+        "tenure_bin_1-2Years",
+        "tenure_bin_2-4Years",
+        "tenure_bin_4-6Years"
+      ]
+    },
+    "charges_per_tenure": {
+      "type": "ratio",
+      "numerator": "TotalCharges",
+      "denominator": "tenure",
+      "created_columns": [
+        "charges_per_tenure"
+      ]
+    },
+    "charges_ratio": {
+      "type": "ratio",
+      "numerator": "TotalCharges",
+      "denominator": "MonthlyCharges",
+      "created_columns": [
+        "charges_ratio"
+      ]
+    },
+    "senior_partner": {
+      "type": "interaction",
+      "columns": [
+        "SeniorCitizen",
+        "Partner"
+      ],
+      "operation": "multiply",
+      "created_columns": [
+        "senior_partner"
+      ]
+    },
+    "high_charges_flag": {
+      "type": "threshold",
+      "source_column": "MonthlyCharges",
+      "threshold": 70,
+      "operation": "greater_than",
+      "created_columns": [
+        "high_charges_flag"
+      ]
+    },
+    "long_tenure_flag": {
+      "type": "threshold",
+      "source_column": "tenure",
+      "threshold": 24,
+      "operation": "greater_than",
+      "created_columns": [
+        "long_tenure_flag"
+      ]
+    },
+    "customerID_zscore": {
+      "type": "statistical",
+      "source_column": "customerID",
+      "transformation": "z_score",
+      "created_columns": [
+        "customerID_zscore"
+      ]
+    },
+    "customerID_percentile": {
+      "type": "statistical",
+      "source_column": "customerID",
+      "transformation": "percentile_rank",
+      "created_columns": [
+        "customerID_percentile"
+      ]
+    },
+    "tenure_zscore": {
+      "type": "statistical",
+      "source_column": "tenure",
+      "transformation": "z_score",
+      "created_columns": [
+        "tenure_zscore"
+      ]
+    },
+    "tenure_percentile": {
+      "type": "statistical",
+      "source_column": "tenure",
+      "transformation": "percentile_rank",
+      "created_columns": [
+        "tenure_percentile"
+      ]
+    },
+    "MonthlyCharges_zscore": {
+      "type": "statistical",
+      "source_column": "MonthlyCharges",
+      "transformation": "z_score",
+      "created_columns": [
+        "MonthlyCharges_zscore"
+      ]
+    },
+    "MonthlyCharges_percentile": {
+      "type": "statistical",
+      "source_column": "MonthlyCharges",
+      "transformation": "percentile_rank",
+      "created_columns": [
+        "MonthlyCharges_percentile"
+      ]
+    },
+    "TotalCharges_zscore": {
+      "type": "statistical",
+      "source_column": "TotalCharges",
+      "transformation": "z_score",
+      "created_columns": [
+        "TotalCharges_zscore"
+      ]
+    },
+    "TotalCharges_percentile": {
+      "type": "statistical",
+      "source_column": "TotalCharges",
+      "transformation": "percentile_rank",
+      "created_columns": [
+        "TotalCharges_percentile"
+      ]
+    },
+    "charges_per_tenure_zscore": {
+      "type": "statistical",
+      "source_column": "charges_per_tenure",
+      "transformation": "z_score",
+      "created_columns": [
+        "charges_per_tenure_zscore"
+      ]
+    },
+    "charges_per_tenure_percentile": {
+      "type": "statistical",
+      "source_column": "charges_per_tenure",
+      "transformation": "percentile_rank",
+      "created_columns": [
+        "charges_per_tenure_percentile"
+      ]
+    },
+    "charges_ratio_zscore": {
+      "type": "statistical",
+      "source_column": "charges_ratio",
+      "transformation": "z_score",
+      "created_columns": [
+        "charges_ratio_zscore"
+      ]
+    },
+    "charges_ratio_percentile": {
+      "type": "statistical",
+      "source_column": "charges_ratio",
+      "transformation": "percentile_rank",
+      "created_columns": [
+        "charges_ratio_percentile"
+      ]
+    }
+  },
+  "transformation_log": [
+    {
+      "timestamp": "2025-08-23T20:32:22.207763",
+      "operation": "LOAD",
+      "details": "Loaded adult_census_income: (32561, 33)"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:22.213204",
+      "operation": "BINNING",
+      "details": "Created binning for age with 5 bins"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:22.214053",
+      "operation": "WARNING",
+      "details": "Missing columns for arithmetic: ['capital-gain', 'capital-loss']"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:22.214403",
+      "operation": "WARNING",
+      "details": "Source column hours-per-week not found for binning"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:22.214828",
+      "operation": "WARNING",
+      "details": "Missing columns for interaction: ['education-num']"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:22.215123",
+      "operation": "WARNING",
+      "details": "Column education-num not found for composite feature"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:22.215130",
+      "operation": "WARNING",
+      "details": "Column hours-per-week not found for composite feature"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:22.215394",
+      "operation": "COMPOSITE",
+      "details": "Created composite feature: high_earner_potential"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:22.235933",
+      "operation": "STATISTICAL",
+      "details": "Created statistical features for 11 columns"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:22.352260",
+      "operation": "POLYNOMIAL",
+      "details": "Created 45 polynomial features"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:22.352601",
+      "operation": "COMPLETE",
+      "details": "Feature engineering complete: (32561, 33) \u2192 (32561, 104)"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:23.366068",
+      "operation": "LOAD",
+      "details": "Loaded telco_customer_churn: (7043, 32)"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:23.366985",
+      "operation": "BINNING",
+      "details": "Created binning for tenure with 4 bins"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:23.367795",
+      "operation": "RATIO",
+      "details": "Created ratio feature: charges_per_tenure"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:23.368312",
+      "operation": "RATIO",
+      "details": "Created ratio feature: charges_ratio"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:23.368588",
+      "operation": "INTERACTION",
+      "details": "Created interaction feature: senior_partner"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:23.368949",
+      "operation": "THRESHOLD",
+      "details": "Created threshold feature: high_charges_flag"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:23.369385",
+      "operation": "THRESHOLD",
+      "details": "Created threshold feature: long_tenure_flag"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:23.376782",
+      "operation": "STATISTICAL",
+      "details": "Created statistical features for 16 columns"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:23.385450",
+      "operation": "POLYNOMIAL",
+      "details": "Created 45 polynomial features"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:23.385705",
+      "operation": "COMPLETE",
+      "details": "Feature engineering complete: (7043, 32) \u2192 (7043, 100)"
+    }
+  ],
+  "timestamp": "2025-08-23T20:32:23.385699",
+  "feature_selection": {
+    "error": "Cannot cast object dtype to float64"
+  },
+  "transformation_summary": {
+    "dataset_name": "telco_customer_churn",
+    "transformation_timestamp": "2025-08-23T20:32:23.399492",
+    "shape_transformation": {
+      "original": [
+        7043,
+        32
+      ],
+      "transformed": [
+        7043,
+        100
+      ],
+      "features_added": 68,
+      "growth_ratio": 3.12
+    },
+    "feature_engineering": {
+      "total_operations": 21,
+      "feature_types_created": [
+        "threshold",
+        "statistical",
+        "composite",
+        "interaction",
+        "ratio",
+        "binning",
+        "polynomial"
+      ],
+      "features_by_type": {
+        "binning": 2,
+        "composite": 1,
+        "statistical": 28,
+        "polynomial": 1,
+        "ratio": 2,
+        "interaction": 1,
+        "threshold": 2
+      }
+    },
+    "data_quality": {
+      "missing_values": "calculated_after_transformation",
+      "data_types": "preserved_and_enhanced"
+    }
+  }
+}

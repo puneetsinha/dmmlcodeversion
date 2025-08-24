@@ -1,0 +1,136 @@
+{
+  "transformation_pipeline_summary": {
+    "timestamp": "2025-08-23T20:32:23.687470",
+    "total_datasets": 2,
+    "successful_transformations": 2,
+    "failed_transformations": 0,
+    "success_rate": 100.0
+  },
+  "dataset_results": [
+    {
+      "dataset_name": "adult_census_income",
+      "status": "SUCCESS",
+      "original_shape": [
+        32561,
+        33
+      ],
+      "final_shape": [
+        32561,
+        104
+      ],
+      "features_engineered": 71,
+      "transformation_summary": {
+        "dataset_name": "adult_census_income",
+        "transformation_timestamp": "2025-08-23T20:32:22.392097",
+        "shape_transformation": {
+          "original": [
+            32561,
+            33
+          ],
+          "transformed": [
+            32561,
+            104
+          ],
+          "features_added": 71,
+          "growth_ratio": 3.15
+        },
+        "feature_engineering": {
+          "total_operations": 11,
+          "feature_types_created": [
+            "composite",
+            "polynomial",
+            "binning",
+            "statistical"
+          ],
+          "features_by_type": {
+            "binning": 1,
+            "composite": 1,
+            "statistical": 16,
+            "polynomial": 1
+          }
+        },
+        "data_quality": {
+          "missing_values": "calculated_after_transformation",
+          "data_types": "preserved_and_enhanced"
+        }
+      },
+      "output_files": {
+        "csv": "/Users/puneetsinha/DMML/transformed_data/adult_census_income_transformed.csv",
+        "parquet": "/Users/puneetsinha/DMML/transformed_data/adult_census_income_transformed.parquet",
+        "metadata": "/Users/puneetsinha/DMML/feature_definitions/metadata/adult_census_income_transformation_metadata.json",
+        "features": "/Users/puneetsinha/DMML/feature_definitions/features/adult_census_income_features.json"
+      }
+    },
+    {
+      "dataset_name": "telco_customer_churn",
+      "status": "SUCCESS",
+      "original_shape": [
+        7043,
+        32
+      ],
+      "final_shape": [
+        7043,
+        100
+      ],
+      "features_engineered": 68,
+      "transformation_summary": {
+        "dataset_name": "telco_customer_churn",
+        "transformation_timestamp": "2025-08-23T20:32:23.399492",
+        "shape_transformation": {
+          "original": [
+            7043,
+            32
+          ],
+          "transformed": [
+            7043,
+            100
+          ],
+          "features_added": 68,
+          "growth_ratio": 3.12
+        },
+        "feature_engineering": {
+          "total_operations": 21,
+          "feature_types_created": [
+            "threshold",
+            "statistical",
+            "composite",
+            "interaction",
+            "ratio",
+            "binning",
+            "polynomial"
+          ],
+          "features_by_type": {
+            "binning": 2,
+            "composite": 1,
+            "statistical": 28,
+            "polynomial": 1,
+            "ratio": 2,
+            "interaction": 1,
+            "threshold": 2
+          }
+        },
+        "data_quality": {
+          "missing_values": "calculated_after_transformation",
+          "data_types": "preserved_and_enhanced"
+        }
+      },
+      "output_files": {
+        "csv": "/Users/puneetsinha/DMML/transformed_data/telco_customer_churn_transformed.csv",
+        "parquet": "/Users/puneetsinha/DMML/transformed_data/telco_customer_churn_transformed.parquet",
+        "metadata": "/Users/puneetsinha/DMML/feature_definitions/metadata/telco_customer_churn_transformation_metadata.json",
+        "features": "/Users/puneetsinha/DMML/feature_definitions/features/telco_customer_churn_features.json"
+      }
+    }
+  ],
+  "output_directories": {
+    "transformed_data": "/Users/puneetsinha/DMML/transformed_data",
+    "feature_definitions": "/Users/puneetsinha/DMML/feature_definitions"
+  },
+  "recommendations": [
+    "High number of features created - consider feature selection for model performance",
+    "Consider feature selection to improve model performance and training speed",
+    "Transformed datasets ready for feature store integration",
+    "Consider A/B testing different feature combinations for optimal model performance",
+    "Monitor feature importance in production models to validate engineering decisions"
+  ]
+}

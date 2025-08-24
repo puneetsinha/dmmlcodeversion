@@ -1,0 +1,287 @@
+{
+  "dataset_name": "adult_census_income",
+  "original_shape": [
+    32561,
+    15
+  ],
+  "final_shape": [
+    32561,
+    33
+  ],
+  "standardized_shape": [
+    32561,
+    33
+  ],
+  "cleaning_operations": [
+    {
+      "timestamp": "2025-08-23T20:23:35.367748",
+      "operation": "LOAD",
+      "details": "Dataset loaded: 32,561 rows, 15 columns"
+    },
+    {
+      "timestamp": "2025-08-23T20:23:35.388001",
+      "operation": "MISSING_VALUES_SUMMARY",
+      "details": "Missing values reduced from 0 to 0"
+    },
+    {
+      "timestamp": "2025-08-23T20:23:35.391014",
+      "operation": "REPLACEMENT",
+      "details": "Column 'workclass' values replaced"
+    },
+    {
+      "timestamp": "2025-08-23T20:23:35.392123",
+      "operation": "REPLACEMENT",
+      "details": "Column 'occupation' values replaced"
+    },
+    {
+      "timestamp": "2025-08-23T20:23:35.394883",
+      "operation": "DROP_COLUMNS",
+      "details": "Dropped columns: ['fnlwgt']"
+    },
+    {
+      "timestamp": "2025-08-23T20:23:35.403434",
+      "operation": "ENCODING",
+      "details": "Column 'income' manually mapped"
+    },
+    {
+      "timestamp": "2025-08-23T20:23:35.404377",
+      "operation": "ENCODING",
+      "details": "Column 'sex' manually mapped"
+    },
+    {
+      "timestamp": "2025-08-23T20:23:35.415398",
+      "operation": "ENCODING",
+      "details": "Column 'workclass' one-hot encoded"
+    },
+    {
+      "timestamp": "2025-08-23T20:23:35.426841",
+      "operation": "ENCODING",
+      "details": "Column 'education' label encoded (high cardinality)"
+    },
+    {
+      "timestamp": "2025-08-23T20:23:35.484138",
+      "operation": "ENCODING",
+      "details": "Column 'marital.status' one-hot encoded"
+    },
+    {
+      "timestamp": "2025-08-23T20:23:35.487816",
+      "operation": "ENCODING",
+      "details": "Column 'occupation' label encoded (high cardinality)"
+    },
+    {
+      "timestamp": "2025-08-23T20:23:35.494156",
+      "operation": "ENCODING",
+      "details": "Column 'relationship' one-hot encoded"
+    },
+    {
+      "timestamp": "2025-08-23T20:23:35.505477",
+      "operation": "ENCODING",
+      "details": "Column 'race' one-hot encoded"
+    },
+    {
+      "timestamp": "2025-08-23T20:23:35.510084",
+      "operation": "ENCODING",
+      "details": "Column 'native.country' label encoded (high cardinality)"
+    },
+    {
+      "timestamp": "2025-08-23T20:23:35.517959",
+      "operation": "STANDARDIZATION",
+      "details": "Standardized 10 numerical columns"
+    },
+    {
+      "timestamp": "2025-08-23T20:23:35.517989",
+      "operation": "CLEANING_COMPLETE",
+      "details": "Shape changed from (32561, 15) to (32561, 33)"
+    }
+  ],
+  "encoding_info": {
+    "income": {
+      "type": "manual_mapping",
+      "mapping": {
+        " <=50K": 0,
+        " >50K": 1,
+        "<=50K": 0,
+        ">50K": 1
+      }
+    },
+    "sex": {
+      "type": "manual_mapping",
+      "mapping": {
+        " Male": 1,
+        " Female": 0,
+        "Male": 1,
+        "Female": 0
+      }
+    },
+    "workclass": {
+      "type": "one_hot",
+      "columns": [
+        "workclass__Federal-gov",
+        "workclass__Local-gov",
+        "workclass__Never-worked",
+        "workclass__Private",
+        "workclass__Self-emp-inc",
+        "workclass__Self-emp-not-inc",
+        "workclass__State-gov",
+        "workclass__Without-pay"
+      ]
+    },
+    "education": {
+      "type": "label_encoding",
+      "classes": [
+        "10th",
+        "11th",
+        "12th",
+        "1st-4th",
+        "5th-6th",
+        "7th-8th",
+        "9th",
+        "Assoc-acdm",
+        "Assoc-voc",
+        "Bachelors",
+        "Doctorate",
+        "HS-grad",
+        "Masters",
+        "Preschool",
+        "Prof-school",
+        "Some-college"
+      ]
+    },
+    "marital.status": {
+      "type": "one_hot",
+      "columns": [
+        "marital.status__Married-AF-spouse",
+        "marital.status__Married-civ-spouse",
+        "marital.status__Married-spouse-absent",
+        "marital.status__Never-married",
+        "marital.status__Separated",
+        "marital.status__Widowed"
+      ]
+    },
+    "occupation": {
+      "type": "label_encoding",
+      "classes": [
+        "?",
+        "Adm-clerical",
+        "Armed-Forces",
+        "Craft-repair",
+        "Exec-managerial",
+        "Farming-fishing",
+        "Handlers-cleaners",
+        "Machine-op-inspct",
+        "Other-service",
+        "Priv-house-serv",
+        "Prof-specialty",
+        "Protective-serv",
+        "Sales",
+        "Tech-support",
+        "Transport-moving"
+      ]
+    },
+    "relationship": {
+      "type": "one_hot",
+      "columns": [
+        "relationship__Not-in-family",
+        "relationship__Other-relative",
+        "relationship__Own-child",
+        "relationship__Unmarried",
+        "relationship__Wife"
+      ]
+    },
+    "race": {
+      "type": "one_hot",
+      "columns": [
+        "race__Asian-Pac-Islander",
+        "race__Black",
+        "race__Other",
+        "race__White"
+      ]
+    },
+    "native.country": {
+      "type": "label_encoding",
+      "classes": [
+        "?",
+        "Cambodia",
+        "Canada",
+        "China",
+        "Columbia",
+        "Cuba",
+        "Dominican-Republic",
+        "Ecuador",
+        "El-Salvador",
+        "England",
+        "France",
+        "Germany",
+        "Greece",
+        "Guatemala",
+        "Haiti",
+        "Holand-Netherlands",
+        "Honduras",
+        "Hong",
+        "Hungary",
+        "India",
+        "Iran",
+        "Ireland",
+        "Italy",
+        "Jamaica",
+        "Japan",
+        "Laos",
+        "Mexico",
+        "Nicaragua",
+        "Outlying-US(Guam-USVI-etc)",
+        "Peru",
+        "Philippines",
+        "Poland",
+        "Portugal",
+        "Puerto-Rico",
+        "Scotland",
+        "South",
+        "Taiwan",
+        "Thailand",
+        "Trinadad&Tobago",
+        "United-States",
+        "Vietnam",
+        "Yugoslavia"
+      ]
+    }
+  },
+  "scaler_info": {
+    "columns": [
+      "age",
+      "education",
+      "education.num",
+      "occupation",
+      "sex",
+      "capital.gain",
+      "capital.loss",
+      "hours.per.week",
+      "native.country",
+      "income"
+    ],
+    "mean": [
+      38.58164675532078,
+      10.298209514449802,
+      10.0806793403151,
+      6.572740394951015,
+      0.6692054912318418,
+      1077.6488437087312,
+      87.303829734959,
+      40.437455852092995,
+      36.718866128190164,
+      0.2408095574460244
+    ],
+    "scale": [
+      13.640223092304277,
+      3.8702045191455334,
+      2.5726808256012865,
+      4.228791865498356,
+      0.4704992048207851,
+      7385.178676947627,
+      402.95403082748646,
+      12.347239075707988,
+      7.8236617628856555,
+      0.4275749226611335
+    ]
+  },
+  "timestamp": "2025-08-23T20:23:35.517982"
+}

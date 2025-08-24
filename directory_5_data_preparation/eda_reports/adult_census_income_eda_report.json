@@ -1,0 +1,838 @@
+{
+  "dataset_name": "adult_census_income",
+  "timestamp": "2025-08-23T20:23:43.280762",
+  "basic_statistics": {
+    "dataset_info": {
+      "name": "adult_census_income",
+      "shape": [
+        32561,
+        33
+      ],
+      "memory_usage_mb": 3.2,
+      "timestamp": "2025-08-23T20:23:35.519473"
+    },
+    "column_statistics": {
+      "age": {
+        "dtype": "int64",
+        "non_null_count": 32561,
+        "unique_count": 73,
+        "null_percentage": 0.0,
+        "mean": 38.582,
+        "median": 37.0,
+        "std": 13.64,
+        "min": 17.0,
+        "max": 90.0,
+        "q25": 28.0,
+        "q75": 48.0,
+        "skewness": 0.559,
+        "kurtosis": -0.166
+      },
+      "education": {
+        "dtype": "int64",
+        "non_null_count": 32561,
+        "unique_count": 16,
+        "null_percentage": 0.0,
+        "mean": 10.298,
+        "median": 11.0,
+        "std": 3.87,
+        "min": 0.0,
+        "max": 15.0,
+        "q25": 9.0,
+        "q75": 12.0,
+        "skewness": -0.934,
+        "kurtosis": 0.681
+      },
+      "education.num": {
+        "dtype": "int64",
+        "non_null_count": 32561,
+        "unique_count": 16,
+        "null_percentage": 0.0,
+        "mean": 10.081,
+        "median": 10.0,
+        "std": 2.573,
+        "min": 1.0,
+        "max": 16.0,
+        "q25": 9.0,
+        "q75": 12.0,
+        "skewness": -0.312,
+        "kurtosis": 0.623
+      },
+      "occupation": {
+        "dtype": "int64",
+        "non_null_count": 32561,
+        "unique_count": 15,
+        "null_percentage": 0.0,
+        "mean": 6.573,
+        "median": 7.0,
+        "std": 4.229,
+        "min": 0.0,
+        "max": 14.0,
+        "q25": 3.0,
+        "q75": 10.0,
+        "skewness": 0.115,
+        "kurtosis": -1.235
+      },
+      "sex": {
+        "dtype": "int64",
+        "non_null_count": 32561,
+        "unique_count": 2,
+        "null_percentage": 0.0,
+        "mean": 0.669,
+        "median": 1.0,
+        "std": 0.471,
+        "min": 0.0,
+        "max": 1.0,
+        "q25": 0.0,
+        "q75": 1.0,
+        "skewness": -0.719,
+        "kurtosis": -1.483
+      },
+      "capital.gain": {
+        "dtype": "int64",
+        "non_null_count": 32561,
+        "unique_count": 119,
+        "null_percentage": 0.0,
+        "mean": 1077.649,
+        "median": 0.0,
+        "std": 7385.292,
+        "min": 0.0,
+        "max": 99999.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "skewness": 11.954,
+        "kurtosis": 154.799
+      },
+      "capital.loss": {
+        "dtype": "int64",
+        "non_null_count": 32561,
+        "unique_count": 92,
+        "null_percentage": 0.0,
+        "mean": 87.304,
+        "median": 0.0,
+        "std": 402.96,
+        "min": 0.0,
+        "max": 4356.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "skewness": 4.595,
+        "kurtosis": 20.377
+      },
+      "hours.per.week": {
+        "dtype": "int64",
+        "non_null_count": 32561,
+        "unique_count": 94,
+        "null_percentage": 0.0,
+        "mean": 40.437,
+        "median": 40.0,
+        "std": 12.347,
+        "min": 1.0,
+        "max": 99.0,
+        "q25": 40.0,
+        "q75": 45.0,
+        "skewness": 0.228,
+        "kurtosis": 2.917
+      },
+      "native.country": {
+        "dtype": "int64",
+        "non_null_count": 32561,
+        "unique_count": 42,
+        "null_percentage": 0.0,
+        "mean": 36.719,
+        "median": 39.0,
+        "std": 7.824,
+        "min": 0.0,
+        "max": 41.0,
+        "q25": 39.0,
+        "q75": 39.0,
+        "skewness": -3.658,
+        "kurtosis": 12.533
+      },
+      "income": {
+        "dtype": "int64",
+        "non_null_count": 32561,
+        "unique_count": 2,
+        "null_percentage": 0.0,
+        "mean": 0.241,
+        "median": 0.0,
+        "std": 0.428,
+        "min": 0.0,
+        "max": 1.0,
+        "q25": 0.0,
+        "q75": 0.0,
+        "skewness": 1.212,
+        "kurtosis": -0.53
+      },
+      "workclass__Federal-gov": {
+        "dtype": "bool",
+        "non_null_count": 32561,
+        "unique_count": 2,
+        "null_percentage": 0.0,
+        "mode": "False",
+        "top_values": {
+          "false": 31601,
+          "true": 960
+        }
+      },
+      "workclass__Local-gov": {
+        "dtype": "bool",
+        "non_null_count": 32561,
+        "unique_count": 2,
+        "null_percentage": 0.0,
+        "mode": "False",
+        "top_values": {
+          "false": 30468,
+          "true": 2093
+        }
+      },
+      "workclass__Never-worked": {
+        "dtype": "bool",
+        "non_null_count": 32561,
+        "unique_count": 2,
+        "null_percentage": 0.0,
+        "mode": "False",
+        "top_values": {
+          "false": 32554,
+          "true": 7
+        }
+      },
+      "workclass__Private": {
+        "dtype": "bool",
+        "non_null_count": 32561,
+        "unique_count": 2,
+        "null_percentage": 0.0,
+        "mode": "True",
+        "top_values": {
+          "true": 22696,
+          "false": 9865
+        }
+      },
+      "workclass__Self-emp-inc": {
+        "dtype": "bool",
+        "non_null_count": 32561,
+        "unique_count": 2,
+        "null_percentage": 0.0,
+        "mode": "False",
+        "top_values": {
+          "false": 31445,
+          "true": 1116
+        }
+      },
+      "workclass__Self-emp-not-inc": {
+        "dtype": "bool",
+        "non_null_count": 32561,
+        "unique_count": 2,
+        "null_percentage": 0.0,
+        "mode": "False",
+        "top_values": {
+          "false": 30020,
+          "true": 2541
+        }
+      },
+      "workclass__State-gov": {
+        "dtype": "bool",
+        "non_null_count": 32561,
+        "unique_count": 2,
+        "null_percentage": 0.0,
+        "mode": "False",
+        "top_values": {
+          "false": 31263,
+          "true": 1298
+        }
+      },
+      "workclass__Without-pay": {
+        "dtype": "bool",
+        "non_null_count": 32561,
+        "unique_count": 2,
+        "null_percentage": 0.0,
+        "mode": "False",
+        "top_values": {
+          "false": 32547,
+          "true": 14
+        }
+      },
+      "marital.status__Married-AF-spouse": {
+        "dtype": "bool",
+        "non_null_count": 32561,
+        "unique_count": 2,
+        "null_percentage": 0.0,
+        "mode": "False",
+        "top_values": {
+          "false": 32538,
+          "true": 23
+        }
+      },
+      "marital.status__Married-civ-spouse": {
+        "dtype": "bool",
+        "non_null_count": 32561,
+        "unique_count": 2,
+        "null_percentage": 0.0,
+        "mode": "False",
+        "top_values": {
+          "false": 17585,
+          "true": 14976
+        }
+      },
+      "marital.status__Married-spouse-absent": {
+        "dtype": "bool",
+        "non_null_count": 32561,
+        "unique_count": 2,
+        "null_percentage": 0.0,
+        "mode": "False",
+        "top_values": {
+          "false": 32143,
+          "true": 418
+        }
+      },
+      "marital.status__Never-married": {
+        "dtype": "bool",
+        "non_null_count": 32561,
+        "unique_count": 2,
+        "null_percentage": 0.0,
+        "mode": "False",
+        "top_values": {
+          "false": 21878,
+          "true": 10683
+        }
+      },
+      "marital.status__Separated": {
+        "dtype": "bool",
+        "non_null_count": 32561,
+        "unique_count": 2,
+        "null_percentage": 0.0,
+        "mode": "False",
+        "top_values": {
+          "false": 31536,
+          "true": 1025
+        }
+      },
+      "marital.status__Widowed": {
+        "dtype": "bool",
+        "non_null_count": 32561,
+        "unique_count": 2,
+        "null_percentage": 0.0,
+        "mode": "False",
+        "top_values": {
+          "false": 31568,
+          "true": 993
+        }
+      },
+      "relationship__Not-in-family": {
+        "dtype": "bool",
+        "non_null_count": 32561,
+        "unique_count": 2,
+        "null_percentage": 0.0,
+        "mode": "False",
+        "top_values": {
+          "false": 24256,
+          "true": 8305
+        }
+      },
+      "relationship__Other-relative": {
+        "dtype": "bool",
+        "non_null_count": 32561,
+        "unique_count": 2,
+        "null_percentage": 0.0,
+        "mode": "False",
+        "top_values": {
+          "false": 31580,
+          "true": 981
+        }
+      },
+      "relationship__Own-child": {
+        "dtype": "bool",
+        "non_null_count": 32561,
+        "unique_count": 2,
+        "null_percentage": 0.0,
+        "mode": "False",
+        "top_values": {
+          "false": 27493,
+          "true": 5068
+        }
+      },
+      "relationship__Unmarried": {
+        "dtype": "bool",
+        "non_null_count": 32561,
+        "unique_count": 2,
+        "null_percentage": 0.0,
+        "mode": "False",
+        "top_values": {
+          "false": 29115,
+          "true": 3446
+        }
+      },
+      "relationship__Wife": {
+        "dtype": "bool",
+        "non_null_count": 32561,
+        "unique_count": 2,
+        "null_percentage": 0.0,
+        "mode": "False",
+        "top_values": {
+          "false": 30993,
+          "true": 1568
+        }
+      },
+      "race__Asian-Pac-Islander": {
+        "dtype": "bool",
+        "non_null_count": 32561,
+        "unique_count": 2,
+        "null_percentage": 0.0,
+        "mode": "False",
+        "top_values": {
+          "false": 31522,
+          "true": 1039
+        }
+      },
+      "race__Black": {
+        "dtype": "bool",
+        "non_null_count": 32561,
+        "unique_count": 2,
+        "null_percentage": 0.0,
+        "mode": "False",
+        "top_values": {
+          "false": 29437,
+          "true": 3124
+        }
+      },
+      "race__Other": {
+        "dtype": "bool",
+        "non_null_count": 32561,
+        "unique_count": 2,
+        "null_percentage": 0.0,
+        "mode": "False",
+        "top_values": {
+          "false": 32290,
+          "true": 271
+        }
+      },
+      "race__White": {
+        "dtype": "bool",
+        "non_null_count": 32561,
+        "unique_count": 2,
+        "null_percentage": 0.0,
+        "mode": "True",
+        "top_values": {
+          "true": 27816,
+          "false": 4745
+        }
+      }
+    },
+    "data_types": {
+      "age": "int64",
+      "education": "int64",
+      "education.num": "int64",
+      "occupation": "int64",
+      "sex": "int64",
+      "capital.gain": "int64",
+      "capital.loss": "int64",
+      "hours.per.week": "int64",
+      "native.country": "int64",
+      "income": "int64",
+      "workclass__Federal-gov": "bool",
+      "workclass__Local-gov": "bool",
+      "workclass__Never-worked": "bool",
+      "workclass__Private": "bool",
+      "workclass__Self-emp-inc": "bool",
+      "workclass__Self-emp-not-inc": "bool",
+      "workclass__State-gov": "bool",
+      "workclass__Without-pay": "bool",
+      "marital.status__Married-AF-spouse": "bool",
+      "marital.status__Married-civ-spouse": "bool",
+      "marital.status__Married-spouse-absent": "bool",
+      "marital.status__Never-married": "bool",
+      "marital.status__Separated": "bool",
+      "marital.status__Widowed": "bool",
+      "relationship__Not-in-family": "bool",
+      "relationship__Other-relative": "bool",
+      "relationship__Own-child": "bool",
+      "relationship__Unmarried": "bool",
+      "relationship__Wife": "bool",
+      "race__Asian-Pac-Islander": "bool",
+      "race__Black": "bool",
+      "race__Other": "bool",
+      "race__White": "bool"
+    },
+    "missing_values": {
+      "age": 0,
+      "education": 0,
+      "education.num": 0,
+      "occupation": 0,
+      "sex": 0,
+      "capital.gain": 0,
+      "capital.loss": 0,
+      "hours.per.week": 0,
+      "native.country": 0,
+      "income": 0,
+      "workclass__Federal-gov": 0,
+      "workclass__Local-gov": 0,
+      "workclass__Never-worked": 0,
+      "workclass__Private": 0,
+      "workclass__Self-emp-inc": 0,
+      "workclass__Self-emp-not-inc": 0,
+      "workclass__State-gov": 0,
+      "workclass__Without-pay": 0,
+      "marital.status__Married-AF-spouse": 0,
+      "marital.status__Married-civ-spouse": 0,
+      "marital.status__Married-spouse-absent": 0,
+      "marital.status__Never-married": 0,
+      "marital.status__Separated": 0,
+      "marital.status__Widowed": 0,
+      "relationship__Not-in-family": 0,
+      "relationship__Other-relative": 0,
+      "relationship__Own-child": 0,
+      "relationship__Unmarried": 0,
+      "relationship__Wife": 0,
+      "race__Asian-Pac-Islander": 0,
+      "race__Black": 0,
+      "race__Other": 0,
+      "race__White": 0
+    },
+    "duplicate_rows": 3465
+  },
+  "statistical_tests": {
+    "normality_tests": {
+      "age": {
+        "shapiro_statistic": 0.966,
+        "p_value": 0.0,
+        "is_normal": false
+      },
+      "education": {
+        "shapiro_statistic": 0.8714,
+        "p_value": 0.0,
+        "is_normal": false
+      },
+      "education.num": {
+        "shapiro_statistic": 0.9294,
+        "p_value": 0.0,
+        "is_normal": false
+      },
+      "occupation": {
+        "shapiro_statistic": 0.9382,
+        "p_value": 0.0,
+        "is_normal": false
+      },
+      "capital.gain": {
+        "shapiro_statistic": 0.1141,
+        "p_value": 0.0,
+        "is_normal": false
+      },
+      "capital.loss": {
+        "shapiro_statistic": 0.2226,
+        "p_value": 0.0,
+        "is_normal": false
+      },
+      "hours.per.week": {
+        "shapiro_statistic": 0.8867,
+        "p_value": 0.0,
+        "is_normal": false
+      },
+      "native.country": {
+        "shapiro_statistic": 0.3225,
+        "p_value": 0.0,
+        "is_normal": false
+      }
+    },
+    "correlation_tests": {
+      "age_vs_education": {
+        "correlation": -0.0105,
+        "p_value": 0.0579,
+        "is_significant": "False"
+      },
+      "age_vs_education.num": {
+        "correlation": 0.0365,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "age_vs_occupation": {
+        "correlation": -0.0209,
+        "p_value": 0.0002,
+        "is_significant": "True"
+      },
+      "age_vs_sex": {
+        "correlation": 0.0888,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "age_vs_capital.gain": {
+        "correlation": 0.0777,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "age_vs_capital.loss": {
+        "correlation": 0.0578,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "age_vs_hours.per.week": {
+        "correlation": 0.0688,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "age_vs_native.country": {
+        "correlation": -0.0012,
+        "p_value": 0.8355,
+        "is_significant": "False"
+      },
+      "age_vs_income": {
+        "correlation": 0.234,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "education_vs_education.num": {
+        "correlation": 0.3592,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "education_vs_occupation": {
+        "correlation": -0.0213,
+        "p_value": 0.0001,
+        "is_significant": "True"
+      },
+      "education_vs_sex": {
+        "correlation": -0.0274,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "education_vs_capital.gain": {
+        "correlation": 0.03,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "education_vs_capital.loss": {
+        "correlation": 0.0167,
+        "p_value": 0.0025,
+        "is_significant": "True"
+      },
+      "education_vs_hours.per.week": {
+        "correlation": 0.0555,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "education_vs_native.country": {
+        "correlation": 0.0643,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "education_vs_income": {
+        "correlation": 0.0793,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "education.num_vs_occupation": {
+        "correlation": 0.1097,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "education.num_vs_sex": {
+        "correlation": 0.0123,
+        "p_value": 0.0267,
+        "is_significant": "True"
+      },
+      "education.num_vs_capital.gain": {
+        "correlation": 0.1226,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "education.num_vs_capital.loss": {
+        "correlation": 0.0799,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "education.num_vs_hours.per.week": {
+        "correlation": 0.1481,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "education.num_vs_native.country": {
+        "correlation": 0.0508,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "education.num_vs_income": {
+        "correlation": 0.3352,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "occupation_vs_sex": {
+        "correlation": 0.0803,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "occupation_vs_capital.gain": {
+        "correlation": 0.0255,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "occupation_vs_capital.loss": {
+        "correlation": 0.018,
+        "p_value": 0.0012,
+        "is_significant": "True"
+      },
+      "occupation_vs_hours.per.week": {
+        "correlation": 0.0804,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "occupation_vs_native.country": {
+        "correlation": -0.0125,
+        "p_value": 0.0236,
+        "is_significant": "True"
+      },
+      "occupation_vs_income": {
+        "correlation": 0.0755,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "sex_vs_capital.gain": {
+        "correlation": 0.0485,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "sex_vs_capital.loss": {
+        "correlation": 0.0456,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "sex_vs_hours.per.week": {
+        "correlation": 0.2293,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "sex_vs_native.country": {
+        "correlation": -0.0081,
+        "p_value": 0.1429,
+        "is_significant": "False"
+      },
+      "sex_vs_income": {
+        "correlation": 0.216,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "capital.gain_vs_capital.loss": {
+        "correlation": -0.0316,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "capital.gain_vs_hours.per.week": {
+        "correlation": 0.0784,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "capital.gain_vs_native.country": {
+        "correlation": -0.002,
+        "p_value": 0.7206,
+        "is_significant": "False"
+      },
+      "capital.gain_vs_income": {
+        "correlation": 0.2233,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "capital.loss_vs_hours.per.week": {
+        "correlation": 0.0543,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "capital.loss_vs_native.country": {
+        "correlation": 0.0004,
+        "p_value": 0.9398,
+        "is_significant": "False"
+      },
+      "capital.loss_vs_income": {
+        "correlation": 0.1505,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "hours.per.week_vs_native.country": {
+        "correlation": -0.0027,
+        "p_value": 0.6298,
+        "is_significant": "False"
+      },
+      "hours.per.week_vs_income": {
+        "correlation": 0.2297,
+        "p_value": 0.0,
+        "is_significant": "True"
+      },
+      "native.country_vs_income": {
+        "correlation": 0.0158,
+        "p_value": 0.0043,
+        "is_significant": "True"
+      }
+    }
+  },
+  "feature_importance": {
+    "random_forest": {
+      "age": 0.2255,
+      "capital.gain": 0.1204,
+      "hours.per.week": 0.1118,
+      "marital.status__Married-civ-spouse": 0.1036,
+      "education.num": 0.0981,
+      "occupation": 0.09,
+      "capital.loss": 0.0391,
+      "education": 0.0383,
+      "marital.status__Never-married": 0.0262,
+      "native.country": 0.0201,
+      "relationship__Not-in-family": 0.0157,
+      "sex": 0.0156,
+      "relationship__Own-child": 0.0138,
+      "workclass__Private": 0.0101,
+      "workclass__Self-emp-not-inc": 0.0085,
+      "relationship__Wife": 0.008,
+      "relationship__Unmarried": 0.0075,
+      "race__White": 0.007,
+      "workclass__Self-emp-inc": 0.0063,
+      "workclass__Local-gov": 0.0058,
+      "workclass__Federal-gov": 0.0057,
+      "race__Black": 0.005,
+      "workclass__State-gov": 0.0048,
+      "race__Asian-Pac-Islander": 0.0033,
+      "relationship__Other-relative": 0.0025,
+      "marital.status__Widowed": 0.0022,
+      "marital.status__Separated": 0.0022,
+      "marital.status__Married-spouse-absent": 0.0013,
+      "race__Other": 0.0011,
+      "marital.status__Married-AF-spouse": 0.0005,
+      "workclass__Without-pay": 0.0001,
+      "workclass__Never-worked": 0.0
+    },
+    "mutual_information": {
+      "marital.status__Married-civ-spouse": 0.1082,
+      "marital.status__Never-married": 0.0657,
+      "education.num": 0.0635,
+      "age": 0.0609,
+      "capital.gain": 0.0531,
+      "hours.per.week": 0.0382,
+      "relationship__Own-child": 0.0373,
+      "occupation": 0.0349,
+      "sex": 0.0276,
+      "relationship__Not-in-family": 0.0228,
+      "relationship__Unmarried": 0.0131,
+      "education": 0.0129,
+      "capital.loss": 0.0117,
+      "native.country": 0.009,
+      "race__White": 0.0084,
+      "workclass__Self-emp-inc": 0.0071,
+      "workclass__Federal-gov": 0.0068,
+      "marital.status__Separated": 0.0056,
+      "workclass__Private": 0.0052,
+      "race__Black": 0.0048,
+      "relationship__Wife": 0.0047,
+      "marital.status__Widowed": 0.0036,
+      "relationship__Other-relative": 0.0032,
+      "workclass__Local-gov": 0.0012,
+      "marital.status__Married-spouse-absent": 0.0008,
+      "workclass__Without-pay": 0.0007,
+      "workclass__Never-worked": 0.0,
+      "workclass__Self-emp-not-inc": 0.0,
+      "workclass__State-gov": 0.0,
+      "marital.status__Married-AF-spouse": 0.0,
+      "race__Asian-Pac-Islander": 0.0,
+      "race__Other": 0.0
+    }
+  },
+  "plots_directory": "/Users/puneetsinha/DMML/eda_reports/plots/adult_census_income",
+  "recommendations": [
+    "High skewness in 'capital.gain' (skew=11.95) - consider transformation",
+    "High skewness in 'capital.loss' (skew=4.59) - consider transformation",
+    "High skewness in 'native.country' (skew=-3.66) - consider transformation"
+  ]
+}

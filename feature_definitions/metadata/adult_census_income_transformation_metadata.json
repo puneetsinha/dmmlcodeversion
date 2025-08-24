@@ -1,0 +1,352 @@
+{
+  "dataset_name": "adult_census_income",
+  "original_shape": [
+    32561,
+    33
+  ],
+  "transformed_shape": [
+    32561,
+    104
+  ],
+  "features_created": 71,
+  "feature_definitions": {
+    "age_binned": {
+      "type": "binning",
+      "source_column": "age",
+      "bins": [
+        17,
+        25,
+        35,
+        50,
+        65,
+        90
+      ],
+      "labels": [
+        "Young",
+        "Adult",
+        "MiddleAge",
+        "Senior",
+        "Elder"
+      ],
+      "created_columns": [
+        "age_binned",
+        "age_bin_Young",
+        "age_bin_Adult",
+        "age_bin_MiddleAge",
+        "age_bin_Senior",
+        "age_bin_Elder"
+      ]
+    },
+    "high_earner_potential": {
+      "type": "composite",
+      "conditions": [
+        {
+          "column": "education-num",
+          "operator": ">=",
+          "value": 13
+        },
+        {
+          "column": "hours-per-week",
+          "operator": ">=",
+          "value": 40
+        },
+        {
+          "column": "age",
+          "operator": ">=",
+          "value": 25
+        }
+      ],
+      "logic": "all",
+      "created_columns": [
+        "high_earner_potential"
+      ]
+    },
+    "age_zscore": {
+      "type": "statistical",
+      "source_column": "age",
+      "transformation": "z_score",
+      "created_columns": [
+        "age_zscore"
+      ]
+    },
+    "age_percentile": {
+      "type": "statistical",
+      "source_column": "age",
+      "transformation": "percentile_rank",
+      "created_columns": [
+        "age_percentile"
+      ]
+    },
+    "education_zscore": {
+      "type": "statistical",
+      "source_column": "education",
+      "transformation": "z_score",
+      "created_columns": [
+        "education_zscore"
+      ]
+    },
+    "education_percentile": {
+      "type": "statistical",
+      "source_column": "education",
+      "transformation": "percentile_rank",
+      "created_columns": [
+        "education_percentile"
+      ]
+    },
+    "education.num_zscore": {
+      "type": "statistical",
+      "source_column": "education.num",
+      "transformation": "z_score",
+      "created_columns": [
+        "education.num_zscore"
+      ]
+    },
+    "education.num_percentile": {
+      "type": "statistical",
+      "source_column": "education.num",
+      "transformation": "percentile_rank",
+      "created_columns": [
+        "education.num_percentile"
+      ]
+    },
+    "occupation_zscore": {
+      "type": "statistical",
+      "source_column": "occupation",
+      "transformation": "z_score",
+      "created_columns": [
+        "occupation_zscore"
+      ]
+    },
+    "occupation_percentile": {
+      "type": "statistical",
+      "source_column": "occupation",
+      "transformation": "percentile_rank",
+      "created_columns": [
+        "occupation_percentile"
+      ]
+    },
+    "capital.gain_zscore": {
+      "type": "statistical",
+      "source_column": "capital.gain",
+      "transformation": "z_score",
+      "created_columns": [
+        "capital.gain_zscore"
+      ]
+    },
+    "capital.gain_percentile": {
+      "type": "statistical",
+      "source_column": "capital.gain",
+      "transformation": "percentile_rank",
+      "created_columns": [
+        "capital.gain_percentile"
+      ]
+    },
+    "capital.loss_zscore": {
+      "type": "statistical",
+      "source_column": "capital.loss",
+      "transformation": "z_score",
+      "created_columns": [
+        "capital.loss_zscore"
+      ]
+    },
+    "capital.loss_percentile": {
+      "type": "statistical",
+      "source_column": "capital.loss",
+      "transformation": "percentile_rank",
+      "created_columns": [
+        "capital.loss_percentile"
+      ]
+    },
+    "hours.per.week_zscore": {
+      "type": "statistical",
+      "source_column": "hours.per.week",
+      "transformation": "z_score",
+      "created_columns": [
+        "hours.per.week_zscore"
+      ]
+    },
+    "hours.per.week_percentile": {
+      "type": "statistical",
+      "source_column": "hours.per.week",
+      "transformation": "percentile_rank",
+      "created_columns": [
+        "hours.per.week_percentile"
+      ]
+    },
+    "native.country_zscore": {
+      "type": "statistical",
+      "source_column": "native.country",
+      "transformation": "z_score",
+      "created_columns": [
+        "native.country_zscore"
+      ]
+    },
+    "native.country_percentile": {
+      "type": "statistical",
+      "source_column": "native.country",
+      "transformation": "percentile_rank",
+      "created_columns": [
+        "native.country_percentile"
+      ]
+    },
+    "polynomial_features": {
+      "type": "polynomial",
+      "degree": 2,
+      "source_columns": [
+        "capital.gain",
+        "capital.loss",
+        "age",
+        "hours.per.week",
+        "native.country",
+        "occupation",
+        "education",
+        "education.num",
+        "capital.loss_zscore",
+        "native.country_zscore"
+      ],
+      "created_columns": [
+        "poly_capital.gain_capital.loss",
+        "poly_capital.gain_age",
+        "poly_capital.gain_hours.per.week",
+        "poly_capital.gain_native.country",
+        "poly_capital.gain_occupation",
+        "poly_capital.gain_education",
+        "poly_capital.gain_education.num",
+        "poly_capital.gain_capital.loss_zscore",
+        "poly_capital.gain_native.country_zscore",
+        "poly_capital.loss_age",
+        "poly_capital.loss_hours.per.week",
+        "poly_capital.loss_native.country",
+        "poly_capital.loss_occupation",
+        "poly_capital.loss_education",
+        "poly_capital.loss_education.num",
+        "poly_capital.loss_capital.loss_zscore",
+        "poly_capital.loss_native.country_zscore",
+        "poly_age_hours.per.week",
+        "poly_age_native.country",
+        "poly_age_occupation",
+        "poly_age_education",
+        "poly_age_education.num",
+        "poly_age_capital.loss_zscore",
+        "poly_age_native.country_zscore",
+        "poly_hours.per.week_native.country",
+        "poly_hours.per.week_occupation",
+        "poly_hours.per.week_education",
+        "poly_hours.per.week_education.num",
+        "poly_hours.per.week_capital.loss_zscore",
+        "poly_hours.per.week_native.country_zscore",
+        "poly_native.country_occupation",
+        "poly_native.country_education",
+        "poly_native.country_education.num",
+        "poly_native.country_capital.loss_zscore",
+        "poly_native.country_native.country_zscore",
+        "poly_occupation_education",
+        "poly_occupation_education.num",
+        "poly_occupation_capital.loss_zscore",
+        "poly_occupation_native.country_zscore",
+        "poly_education_education.num",
+        "poly_education_capital.loss_zscore",
+        "poly_education_native.country_zscore",
+        "poly_education.num_capital.loss_zscore",
+        "poly_education.num_native.country_zscore",
+        "poly_capital.loss_zscore_native.country_zscore"
+      ]
+    }
+  },
+  "transformation_log": [
+    {
+      "timestamp": "2025-08-23T20:32:22.207763",
+      "operation": "LOAD",
+      "details": "Loaded adult_census_income: (32561, 33)"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:22.213204",
+      "operation": "BINNING",
+      "details": "Created binning for age with 5 bins"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:22.214053",
+      "operation": "WARNING",
+      "details": "Missing columns for arithmetic: ['capital-gain', 'capital-loss']"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:22.214403",
+      "operation": "WARNING",
+      "details": "Source column hours-per-week not found for binning"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:22.214828",
+      "operation": "WARNING",
+      "details": "Missing columns for interaction: ['education-num']"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:22.215123",
+      "operation": "WARNING",
+      "details": "Column education-num not found for composite feature"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:22.215130",
+      "operation": "WARNING",
+      "details": "Column hours-per-week not found for composite feature"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:22.215394",
+      "operation": "COMPOSITE",
+      "details": "Created composite feature: high_earner_potential"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:22.235933",
+      "operation": "STATISTICAL",
+      "details": "Created statistical features for 11 columns"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:22.352260",
+      "operation": "POLYNOMIAL",
+      "details": "Created 45 polynomial features"
+    },
+    {
+      "timestamp": "2025-08-23T20:32:22.352601",
+      "operation": "COMPLETE",
+      "details": "Feature engineering complete: (32561, 33) \u2192 (32561, 104)"
+    }
+  ],
+  "timestamp": "2025-08-23T20:32:22.352593",
+  "feature_selection": {
+    "error": "Cannot cast object dtype to float64"
+  },
+  "transformation_summary": {
+    "dataset_name": "adult_census_income",
+    "transformation_timestamp": "2025-08-23T20:32:22.392097",
+    "shape_transformation": {
+      "original": [
+        32561,
+        33
+      ],
+      "transformed": [
+        32561,
+        104
+      ],
+      "features_added": 71,
+      "growth_ratio": 3.15
+    },
+    "feature_engineering": {
+      "total_operations": 11,
+      "feature_types_created": [
+        "composite",
+        "polynomial",
+        "binning",
+        "statistical"
+      ],
+      "features_by_type": {
+        "binning": 1,
+        "composite": 1,
+        "statistical": 16,
+        "polynomial": 1
+      }
+    },
+    "data_quality": {
+      "missing_values": "calculated_after_transformation",
+      "data_types": "preserved_and_enhanced"
+    }
+  }
+}

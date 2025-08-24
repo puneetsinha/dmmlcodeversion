@@ -1,0 +1,26 @@
+{
+  "preparation_summary": {
+    "timestamp": "2025-08-23T20:22:21.619427",
+    "total_datasets": 2,
+    "successful_preparations": 0,
+    "failed_preparations": 2,
+    "success_rate": 0.0
+  },
+  "dataset_results": [
+    {
+      "dataset_name": "adult_census_income",
+      "error": "type numpy.bool_ doesn't define __round__ method",
+      "status": "FAILED",
+      "timestamp": "2025-08-23T20:22:21.559646"
+    },
+    {
+      "dataset_name": "telco_customer_churn",
+      "error": "type numpy.bool_ doesn't define __round__ method",
+      "status": "FAILED",
+      "timestamp": "2025-08-23T20:22:21.619196"
+    }
+  ],
+  "recommendations": [
+    "No successful preparations to analyze"
+  ]
+}

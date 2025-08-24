@@ -1,0 +1,17 @@
+{
+  "model_building_summary": {
+    "timestamp": "2025-08-23T20:52:18.384983",
+    "total_datasets": 2,
+    "successful_trainings": 0,
+    "failed_trainings": 2,
+    "success_rate": 0.0,
+    "total_models_trained": 0
+  },
+  "training_results": {},
+  "comparison_report": {
+    "error": "No model results available for comparison"
+  },
+  "recommendations": [
+    "No successful model training - review data preparation and feature engineering"
+  ]
+}

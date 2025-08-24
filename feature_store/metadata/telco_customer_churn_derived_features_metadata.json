@@ -1,0 +1,27 @@
+{
+  "view_name": "telco_customer_churn_derived_features",
+  "features_included": [
+    "PaperlessBilling"
+  ],
+  "features_found": [
+    "PaperlessBilling"
+  ],
+  "total_features": 1,
+  "total_records": 7043,
+  "data_location": "/Users/puneetsinha/DMML/feature_store/registry/views/telco_customer_churn_derived_features.parquet",
+  "created_timestamp": "2025-08-23T20:35:58.002715",
+  "feature_metadata": [
+    {
+      "feature_id": "a4d71987c5a8e6e3",
+      "feature_name": "PaperlessBilling",
+      "feature_group": "telco_customer_churn_20250823_203557",
+      "data_type": "numerical",
+      "description": "Numerical feature from PaperlessBilling",
+      "source_dataset": "telco_customer_churn",
+      "creation_timestamp": "2025-08-23T20:35:57.465861",
+      "created_by": "system",
+      "tags": "[\"numerical\", \"derived_ratio\", \"complete\"]",
+      "is_active": 1
+    }
+  ]
+}

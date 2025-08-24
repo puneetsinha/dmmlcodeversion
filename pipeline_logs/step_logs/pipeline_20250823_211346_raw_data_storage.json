@@ -1,0 +1,12 @@
+{
+  "step_id": "raw_data_storage",
+  "name": "Raw Data Storage",
+  "status": "FAILED",
+  "start_time": "2025-08-23T21:13:56.262242",
+  "error": "Step failed: raw_data_storage - No module named 'storage_config'",
+  "execution_time": 0.002620220184326172,
+  "memory_usage_mb": 0,
+  "retry_count": 2,
+  "traceback": "Traceback (most recent call last):\n  File \"/Users/puneetsinha/DMML/directory_10_pipeline_orchestration/pipeline_orchestrator.py\", line 136, in _import_and_execute_step\n    module = importlib.import_module(module_path)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/anaconda3/lib/python3.11/importlib/__init__.py\", line 126, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1204, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1176, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1126, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 241, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1204, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1176, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1147, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 690, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 940, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 241, in _call_with_frames_removed\n  File \"/Users/puneetsinha/DMML/directory_3_raw_data_storage/__init__.py\", line 8, in <module>\n    from .data_lake_organizer import DataLakeOrganizer\n  File \"/Users/puneetsinha/DMML/directory_3_raw_data_storage/data_lake_organizer.py\", line 14, in <module>\n    from storage_config import storage_config\nModuleNotFoundError: No module named 'storage_config'\n",
+  "end_time": "2025-08-23T21:13:56.264859"
+}

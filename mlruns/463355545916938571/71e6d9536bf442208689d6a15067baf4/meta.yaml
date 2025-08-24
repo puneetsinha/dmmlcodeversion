@@ -1,0 +1,14 @@
+artifact_uri: /Users/puneetsinha/DMML/mlruns/463355545916938571/71e6d9536bf442208689d6a15067baf4/artifacts
+end_time: 1755962988522
+entry_point_name: ''
+experiment_id: '463355545916938571'
+lifecycle_stage: active
+run_id: 71e6d9536bf442208689d6a15067baf4
+run_name: gradient_boosting_20250823_205946
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1755962986758
+status: 3
+tags: []
+user_id: puneetsinha

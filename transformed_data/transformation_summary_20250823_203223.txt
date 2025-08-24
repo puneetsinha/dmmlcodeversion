@@ -1,0 +1,117 @@
+TRANSFORMATION PIPELINE SUMMARY
+===============================
+Generated DaTE: 2025-08-23 20:32:23
+Students: 2024ab05134, 2024aa05664
+
+OVERALL PIPELINE RESULTS
+-------------------------
+Total Datasets Processed: 2
+Successful Transformations: 2
+Failed Transformations: 0
+Success Rate: 100.0%
+
+DATASET 1: ADULT_CENSUS_INCOME
+==============================
+Status: SUCCESS
+Original Shape: 32,561 rows × 33 columns
+Final Shape: 32,561 rows × 104 columns
+Features Engineered: 71 new features
+Transformation Timestamp: 2025-08-23 20:32:22
+
+Shape Transformation Details:
+- Original Dimensions: 32,561 rows × 33 columns
+- Transformed Dimensions: 32,561 rows × 104 columns
+- Features Added: 71
+- Growth Ratio: 3.15x
+
+Feature Engineering Summary:
+- Total Operations: 11
+- Feature Types Created: composite, polynomial, binning, statistical
+- Features by Type:
+  * Binning: 1 feature
+  * Composite: 1 feature
+  * Statistical: 16 features
+  * Polynomial: 1 feature
+
+Data Quality:
+- Missing Values: calculated after transformation
+- Data Types: preserved and enhanced
+
+Output Files Generated:
+- CSV: /Users/puneetsinha/DMML/transformed_data/adult_census_income_transformed.csv
+- Parquet: /Users/puneetsinha/DMML/transformed_data/adult_census_income_transformed.parquet
+- Metadata: /Users/puneetsinha/DMML/feature_definitions/metadata/adult_census_income_transformation_metadata.json
+- Features: /Users/puneetsinha/DMML/feature_definitions/features/adult_census_income_features.json
+
+DATASET 2: TELCO_CUSTOMER_CHURN
+===============================
+Status: SUCCESS
+Original Shape: 7,043 rows × 32 columns
+Final Shape: 7,043 rows × 100 columns
+Features Engineered: 68 new features
+Transformation Timestamp: 2025-08-23 20:32:23
+
+Shape Transformation Details:
+- Original Dimensions: 7,043 rows × 32 columns
+- Transformed Dimensions: 7,043 rows × 100 columns
+- Features Added: 68
+- Growth Ratio: 3.12x
+
+Feature Engineering Summary:
+- Total Operations: 21
+- Feature Types Created: threshold, statistical, composite, interaction, ratio, binning, polynomial
+- Features by Type:
+  * Binning: 2 features
+  * Composite: 1 feature
+  * Statistical: 28 features
+  * Polynomial: 1 feature
+  * Ratio: 2 features
+  * Interaction: 1 feature
+  * Threshold: 2 features
+
+Data Quality:
+- Missing Values: calculated after transformation
+- Data Types: preserved and enhanced
+
+Output Files Generated:
+- CSV: /Users/puneetsinha/DMML/transformed_data/telco_customer_churn_transformed.csv
+- Parquet: /Users/puneetsinha/DMML/transformed_data/telco_customer_churn_transformed.parquet
+- Metadata: /Users/puneetsinha/DMML/feature_definitions/metadata/telco_customer_churn_transformation_metadata.json
+- Features: /Users/puneetsinha/DMML/feature_definitions/features/telco_customer_churn_features.json
+
+OUTPUT DIRECTORIES
+==================
+- Transformed Data: /Users/puneetsinha/DMML/transformed_data
+- Feature Definitions: /Users/puneetsinha/DMML/feature_definitions
+
+RECOMMENDATIONS
+===============
+1. High number of features created - consider feature selection for model performance
+2. Consider feature selection to improve model performance and training speed
+3. Transformed datasets ready for feature store integration
+4. Consider A/B testing different feature combinations for optimal model performance
+5. Monitor feature importance in production models to validate engineering decisions
+
+SUMMARY STATISTICS
+==================
+Total Features Engineered: 139 features across 2 datasets
+Average Features per Dataset: 69.5 features
+Average Growth Ratio: 3.14x
+Transformation Success Rate: 100%
+
+FEATURE TYPE DISTRIBUTION
+=========================
+- Statistical Features: 44 (31.7%)
+- Binning Features: 3 (2.2%)
+- Composite Features: 2 (1.4%)
+- Polynomial Features: 2 (1.4%)
+- Ratio Features: 2 (1.4%)
+- Interaction Features: 1 (0.7%)
+- Threshold Features: 2 (1.4%)
+
+This transformation pipeline successfully enhanced both datasets with comprehensive
+feature engineering, creating 139 new features total while maintaining data quality
+and preparing the datasets for advanced machine learning model training.
+
+End of Report
+=============

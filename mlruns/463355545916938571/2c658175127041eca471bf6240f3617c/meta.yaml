@@ -1,0 +1,14 @@
+artifact_uri: /Users/puneetsinha/DMML/mlruns/463355545916938571/2c658175127041eca471bf6240f3617c/artifacts
+end_time: 1755962596571
+entry_point_name: ''
+experiment_id: '463355545916938571'
+lifecycle_stage: active
+run_id: 2c658175127041eca471bf6240f3617c
+run_name: logistic_regression_20250823_205314
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1755962594149
+status: 3
+tags: []
+user_id: puneetsinha

@@ -1,0 +1,10 @@
+artifact_location: /Users/puneetsinha/DMML/mlruns/463355545916938571/models/m-d618bbd496fc44cdb94e7bf1815ca67c/artifacts
+creation_timestamp: 1755962986789
+experiment_id: '463355545916938571'
+last_updated_timestamp: 1755962988521
+model_id: m-d618bbd496fc44cdb94e7bf1815ca67c
+model_type: null
+name: model
+source_run_id: 71e6d9536bf442208689d6a15067baf4
+status: 2
+status_message: null

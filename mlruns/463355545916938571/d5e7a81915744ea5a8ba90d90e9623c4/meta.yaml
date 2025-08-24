@@ -1,0 +1,14 @@
+artifact_uri: /Users/puneetsinha/DMML/mlruns/463355545916938571/d5e7a81915744ea5a8ba90d90e9623c4/artifacts
+end_time: 1755962795977
+entry_point_name: ''
+experiment_id: '463355545916938571'
+lifecycle_stage: active
+run_id: d5e7a81915744ea5a8ba90d90e9623c4
+run_name: xgboost_20250823_205633
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1755962793483
+status: 3
+tags: []
+user_id: puneetsinha

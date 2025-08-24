@@ -1,0 +1,26 @@
+DATA LAKE STORAGE REPORT
+==================================================
+Generated: 2025-08-23 20:02:47
+Base Path: /Users/puneetsinha/DMML/data_lake
+
+SUMMARY
+--------------------
+Total Partitions: 2
+Total Files: 2
+Total Size: 0.52 MB
+
+PARTITION DETAILS
+------------------------------
+Source: huggingface
+  Type: demographics
+  File: adult_census_income_20250823_200247.parquet
+  Path: /Users/puneetsinha/DMML/data_lake/source=huggingface/data_type=demographics/year=2025/month=08/day=23
+  Rows: 32,561
+  Size: 345,851 bytes
+
+Source: kaggle
+  Type: customer_churn
+  File: telco_customer_churn_20250823_200247.parquet
+  Path: /Users/puneetsinha/DMML/data_lake/source=kaggle/data_type=customer_churn/year=2025/month=08/day=23
+  Rows: 7,043
+  Size: 202,275 bytes

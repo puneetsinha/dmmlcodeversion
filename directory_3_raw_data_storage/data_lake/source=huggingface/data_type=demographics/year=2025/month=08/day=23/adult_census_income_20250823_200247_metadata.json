@@ -1,0 +1,31 @@
+{
+  "source_file": "/Users/puneetsinha/DMML/raw_data/huggingface_census.csv",
+  "stored_file": "/Users/puneetsinha/DMML/data_lake/source=huggingface/data_type=demographics/year=2025/month=08/day=23/adult_census_income_20250823_200247.parquet",
+  "partition_path": "/Users/puneetsinha/DMML/data_lake/source=huggingface/data_type=demographics/year=2025/month=08/day=23",
+  "source": "huggingface",
+  "data_type": "demographics",
+  "original_name": "adult_census_income",
+  "filename": "adult_census_income_20250823_200247.parquet",
+  "format": "parquet",
+  "rows": 32561,
+  "columns": 15,
+  "size_bytes": 345851,
+  "created": "2025-08-23T20:02:47.471302",
+  "column_names": [
+    "age",
+    "workclass",
+    "fnlwgt",
+    "education",
+    "education.num",
+    "marital.status",
+    "occupation",
+    "relationship",
+    "race",
+    "sex",
+    "capital.gain",
+    "capital.loss",
+    "hours.per.week",
+    "native.country",
+    "income"
+  ]
+}
