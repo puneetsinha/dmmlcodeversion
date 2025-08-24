@@ -1,14 +1,14 @@
-# 🚨 GitHub Authentication Issue & Solutions
+# GitHub Authentication Issue & Solutions
 
 ## Current Status
-- ✅ **999 files committed locally** - Your complete DMML project is ready
-- ✅ **Repository configured**: [https://github.com/puneetsinha/dmmlcodeversion.git](https://github.com/puneetsinha/dmmlcodeversion.git)
-- ❌ **Authentication blocked**: Token not working for git operations
+- 999 files committed locally - Your complete DMML project is ready
+- Repository configured: [https://github.com/puneetsinha/dmmlcodeversion.git](https://github.com/puneetsinha/dmmlcodeversion.git)
+- Authentication blocked: Token not working for git operations
 
-## 🔍 Issue Analysis
+## Issue Analysis
 The GitHub token has API permissions but is failing for git push operations. This is a common issue with token scopes.
 
-## 🚀 SOLUTION OPTIONS
+## SOLUTION OPTIONS
 
 ### Option 1: Generate New Token (Recommended)
 1. **Go to**: https://github.com/settings/tokens
@@ -33,7 +33,7 @@ If you have SSH keys set up:
 2. Change remote to SSH format
 3. Push without token issues
 
-## 📊 What Will Be Pushed
+## What Will Be Pushed
 **Complete DMML Assignment** with:
 - **Students**: 2024ab05134, 2024aa05664
 - **10 Pipeline Stages**: Data ingestion through orchestration
@@ -43,14 +43,14 @@ If you have SSH keys set up:
 - **Data Lake**: Organized, partitioned datasets
 - **Comprehensive Reports**: All deliverables included
 
-## 🎯 Next Steps
+## Next Steps
 **Choose your preferred option and let me know!**
 
 1. **"New token"** - Generate fresh token with full permissions
 2. **"Manual upload"** - Create ZIP file for manual upload  
 3. **"SSH setup"** - Configure SSH authentication
 
-Your project is **100% ready** - we just need to get past this authentication hurdle! 🌟
+Your project is **100% ready** - we just need to get past this authentication hurdle!
 
 ---
 **Repository**: https://github.com/puneetsinha/dmmlcodeversion.git

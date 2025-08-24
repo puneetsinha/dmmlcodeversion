@@ -1,0 +1,46 @@
+{
+  "project": "DMML - End-to-End ML Pipeline",
+  "students": [
+    "2024ab05134",
+    "2024aa05664"
+  ],
+  "versioning_system": "Git-based Data Versioning",
+  "report_generated": "2025-08-24T15:18:58.014701",
+  "summary": {
+    "total_versions": 0,
+    "total_data_files": 243,
+    "total_size_mb": 115.05,
+    "file_types_distribution": {
+      ".csv": 4,
+      ".json": 17,
+      ".txt": 2,
+      ".parquet": 214,
+      ".db": 1,
+      ".pkl": 5
+    }
+  },
+  "data_directories": {
+    "raw_data": {
+      "exists": true,
+      "file_count": 2
+    },
+    "transformed_data": {
+      "exists": true,
+      "file_count": 8
+    },
+    "directory_3_raw_data_storage/data_lake": {
+      "exists": true,
+      "file_count": 16
+    },
+    "feature_store": {
+      "exists": true,
+      "file_count": 231
+    },
+    "models/trained_models": {
+      "exists": true,
+      "file_count": 13
+    }
+  },
+  "version_history": [],
+  "latest_version": null
+}

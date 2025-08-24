@@ -1,14 +1,14 @@
-# 🚀 GitHub Push - Final Instructions
+# GitHub Push - Final Instructions
 
-## ✅ Current Status
+## Current Status
 Your DMML project is **completely ready** for GitHub! Everything has been set up:
 
-- ✅ Git repository initialized
-- ✅ 999 files committed locally
-- ✅ Remote repository configured: `https://github.com/puneetsinha/BitsPilaniAIML`
-- ✅ Comprehensive commit message with project details
+- Git repository initialized
+- 999 files committed locally
+- Remote repository configured: `https://github.com/puneetsinha/BitsPilaniAIML`
+- Comprehensive commit message with project details
 
-## 🔐 Authentication Required
+## Authentication Required
 
 The only remaining step is GitHub authentication. GitHub no longer accepts password authentication.
 
@@ -41,7 +41,7 @@ git remote set-url origin git@github.com:puneetsinha/BitsPilaniAIML.git
 git push -u origin main
 ```
 
-## 📊 What Will Be Pushed
+## What Will Be Pushed
 
 **Total Files:** 999
 **Project Components:**
@@ -54,7 +54,7 @@ git push -u origin main
 - Data validation reports
 - Pipeline orchestration logs
 
-## 🎯 After Successful Push
+## After Successful Push
 
 Once pushed, your repository will contain:
 - Complete end-to-end ML pipeline
@@ -63,14 +63,14 @@ Once pushed, your repository will contain:
 - All assignment deliverables
 - Production-ready code architecture
 
-## 🚨 Important Notes
+## Important Notes
 
 1. **Token Security:** Never share your Personal Access Token
 2. **One-time Setup:** Once authenticated, future pushes will be easier
 3. **Repository:** https://github.com/puneetsinha/BitsPilaniAIML
 4. **Backup:** Your project is safely committed locally
 
-## 🆘 Need Help?
+## Need Help?
 
 If you encounter issues:
 1. Ensure token has correct permissions (`repo` scope)
@@ -79,5 +79,5 @@ If you encounter issues:
 
 ---
 
-**Status:** Ready for final push! 🎉
+**Status:** Ready for final push!
 **Next Step:** Generate GitHub token and push

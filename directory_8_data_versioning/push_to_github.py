@@ -27,17 +27,17 @@ class GitHubPusher:
             # Check Git installation
             result = subprocess.run(['git', '--version'], 
                                   capture_output=True, text=True, check=True)
-            print(f"✅ Git is installed: {result.stdout.strip()}")
+            print(f"Git is installed: {result.stdout.strip()}")
             
             # Check if we're in a git repository
             os.chdir(self.project_path)
             subprocess.run(['git', 'status'], 
                          capture_output=True, text=True, check=True)
-            print("✅ Git repository detected")
+            print(" Git repository detected")
             
             return True
         except (subprocess.CalledProcessError, FileNotFoundError):
-            print("❌ Git not available or repository not initialized")
+            print(" Git not available or repository not initialized")
             return False
     
     def setup_repository(self):
@@ -48,15 +48,15 @@ class GitHubPusher:
             # Initialize Git if not already done
             if not os.path.exists(".git"):
                 subprocess.run(['git', 'init'], check=True)
-                print("✅ Git repository initialized")
+                print(" Git repository initialized")
             
             # Configure Git user
             try:
                 subprocess.run(['git', 'config', 'user.name', 'Students 2024ab05134 2024aa05664'], check=True)
                 subprocess.run(['git', 'config', 'user.email', 'puneetsinha@example.com'], check=True)
-                print("✅ Git user configured")
+                print(" Git user configured")
             except subprocess.CalledProcessError:
-                print("⚠️  Could not configure Git user")
+                print("  Could not configure Git user")
             
             # Add GitHub remote
             try:
@@ -68,11 +68,11 @@ class GitHubPusher:
             
             # Add the BitsPilaniAIML repository as origin
             subprocess.run(['git', 'remote', 'add', 'origin', self.github_repo], check=True)
-            print(f"✅ GitHub remote added: {self.github_repo}")
+            print(f" GitHub remote added: {self.github_repo}")
             
             return True
         except subprocess.CalledProcessError as e:
-            print(f"❌ Failed to setup repository: {e}")
+            print(f" Failed to setup repository: {e}")
             return False
     
     def create_gitignore(self):
@@ -141,7 +141,7 @@ mlruns/
         gitignore_path = Path(self.project_path) / ".gitignore"
         with open(gitignore_path, 'w') as f:
             f.write(gitignore_content)
-        print("✅ .gitignore created")
+        print(" .gitignore created")
     
     def create_project_readme(self):
         """Create README for the DMML project on GitHub."""
@@ -155,7 +155,7 @@ mlruns/
 
 This repository contains a complete end-to-end machine learning pipeline for customer churn prediction, demonstrating advanced data management, feature engineering, model training, and pipeline orchestration capabilities.
 
-## 🎯 Key Achievements
+##  Key Achievements
 
 - **Complete ML Pipeline**: 10-step end-to-end automation
 - **Multi-Source Data**: Kaggle + Hugging Face integration
@@ -164,7 +164,7 @@ This repository contains a complete end-to-end machine learning pipeline for cus
 - **Production Architecture**: Feature store, versioning, orchestration
 - **Grade A Data Quality**: 95% overall quality score
 
-## 📊 Pipeline Components
+##  Pipeline Components
 
 1. **Data Ingestion** (`directory_2_data_ingestion/`)
    - Kaggle API and Hugging Face dataset integration
@@ -211,7 +211,7 @@ This repository contains a complete end-to-end machine learning pipeline for cus
    - Dependency management
    - Error recovery and monitoring
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 # Clone the repository
@@ -226,7 +226,7 @@ cd directory_10_pipeline_orchestration
 python pipeline_orchestrator.py
 ```
 
-## 📈 Results
+##  Results
 
 ### Model Performance
 | Dataset | Best Model | F1 Score | ROC AUC | Accuracy |
@@ -242,7 +242,7 @@ python pipeline_orchestrator.py
 - **Data Quality Score**: Grade A (95%)
 - **Pipeline Success Rate**: 100%
 
-## 🛠️ Technologies Used
+## 🛠 Technologies Used
 
 - **Python**: Primary development language
 - **Pandas/NumPy**: Data manipulation and analysis
@@ -252,7 +252,7 @@ python pipeline_orchestrator.py
 - **Plotly/Seaborn**: Data visualization
 - **Git**: Version control and collaboration
 
-## 📋 Project Structure
+##  Project Structure
 
 ```
 DMML/
@@ -272,7 +272,7 @@ DMML/
 └── README.md                        # This file
 ```
 
-## 🎓 Learning Outcomes
+##  Learning Outcomes
 
 This project demonstrates mastery of:
 - End-to-end ML pipeline development
@@ -282,7 +282,7 @@ This project demonstrates mastery of:
 - Production-ready system design
 - Version control and collaboration
 
-## 📞 Contact
+##  Contact
 
 **Students**: 2024ab05134, 2024aa05664  
 **Course**: Data Management for Machine Learning  
@@ -296,18 +296,18 @@ This project demonstrates mastery of:
         readme_path = Path(self.project_path) / "README.md"
         with open(readme_path, 'w') as f:
             f.write(readme_content)
-        print("✅ Project README created")
+        print(" Project README created")
     
     def commit_and_push(self):
         """Commit all changes and push to GitHub."""
         try:
             os.chdir(self.project_path)
             
-            print("📦 Preparing project for GitHub...")
+            print(" Preparing project for GitHub...")
             
             # Add all files
             subprocess.run(['git', 'add', '.'], check=True)
-            print("✅ Files staged for commit")
+            print(" Files staged for commit")
             
             # Create comprehensive commit message
             commit_message = """DMML: Complete End-to-End ML Pipeline Implementation
@@ -319,7 +319,7 @@ Institution: BITS Pilani
 This commit includes the complete implementation of an end-to-end machine learning
 pipeline for customer churn prediction with the following components:
 
-🎯 PIPELINE COMPONENTS:
+ PIPELINE COMPONENTS:
 - Data Ingestion: Multi-source data collection (Kaggle + HuggingFace)
 - Data Storage: Partitioned data lake with efficient storage
 - Data Validation: Comprehensive quality assessment (95% score)
@@ -330,14 +330,14 @@ pipeline for customer churn prediction with the following components:
 - Model Building: 4 ML algorithms with hyperparameter tuning
 - Pipeline Orchestration: Automated end-to-end execution
 
-📊 KEY ACHIEVEMENTS:
+ KEY ACHIEVEMENTS:
 - 39,604 total records processed across 2 datasets
 - 204 engineered features created
 - 8 models trained with comprehensive evaluation
 - 100% pipeline success rate
 - Production-ready architecture with monitoring
 
-🛠️ TECHNOLOGIES:
+🛠 TECHNOLOGIES:
 Python, Pandas, Scikit-learn, XGBoost, MLflow, SQLite, Git
 
 This implementation demonstrates mastery of data management principles
@@ -345,7 +345,7 @@ and practical ML engineering skills required for production systems."""
             
             # Commit changes
             subprocess.run(['git', 'commit', '-m', commit_message], check=True)
-            print("✅ Changes committed")
+            print(" Changes committed")
             
             # Create version tag
             tag_name = "v1.0-dmml-complete"
@@ -359,44 +359,44 @@ Students: 2024ab05134, 2024aa05664
 - Comprehensive documentation and reports"""
             
             subprocess.run(['git', 'tag', '-a', tag_name, '-m', tag_message], check=True)
-            print(f"✅ Version tag created: {tag_name}")
+            print(f" Version tag created: {tag_name}")
             
             # Fetch from origin to check for conflicts
             try:
                 subprocess.run(['git', 'fetch', 'origin'], check=True)
-                print("✅ Fetched latest changes from GitHub")
+                print(" Fetched latest changes from GitHub")
             except subprocess.CalledProcessError:
-                print("⚠️  Could not fetch from origin (repository might be empty)")
+                print("  Could not fetch from origin (repository might be empty)")
             
             # Push to GitHub
             try:
                 # Try to push main branch
                 subprocess.run(['git', 'push', '-u', 'origin', 'main'], check=True)
-                print("✅ Main branch pushed to GitHub")
+                print(" Main branch pushed to GitHub")
             except subprocess.CalledProcessError:
                 # If main fails, try master
                 try:
                     subprocess.run(['git', 'push', '-u', 'origin', 'master'], check=True)
-                    print("✅ Master branch pushed to GitHub")
+                    print(" Master branch pushed to GitHub")
                 except subprocess.CalledProcessError:
-                    print("⚠️  Could not push main/master branch")
+                    print("  Could not push main/master branch")
             
             # Push tags
             try:
                 subprocess.run(['git', 'push', 'origin', '--tags'], check=True)
-                print("✅ Version tags pushed to GitHub")
+                print(" Version tags pushed to GitHub")
             except subprocess.CalledProcessError:
-                print("⚠️  Could not push tags")
+                print("  Could not push tags")
             
             return True
             
         except subprocess.CalledProcessError as e:
-            print(f"❌ Failed to commit and push: {e}")
+            print(f" Failed to commit and push: {e}")
             return False
     
     def verify_push(self):
         """Verify that the push was successful."""
-        print("\n🔍 Verifying GitHub push...")
+        print("\n Verifying GitHub push...")
         print(f"📱 Check your repository: {self.github_repo.replace('.git', '')}")
         print("You should see:")
         print("- All your DMML project files")
@@ -406,7 +406,7 @@ Students: 2024ab05134, 2024aa05664
 
 def main():
     """Main function to push DMML project to GitHub."""
-    print("🚀 PUSHING DMML PROJECT TO GITHUB")
+    print(" PUSHING DMML PROJECT TO GITHUB")
     print("=" * 50)
     print("Students: 2024ab05134, 2024aa05664")
     print("Target Repository: https://github.com/puneetsinha/BitsPilaniAIML")
@@ -417,14 +417,14 @@ def main():
     
     # Check prerequisites
     if not pusher.check_prerequisites():
-        print("\n⚠️  Prerequisites not met. Please:")
+        print("\n  Prerequisites not met. Please:")
         print("1. Install Git: xcode-select --install")
         print("2. Run this script again")
         return
     
     # Setup repository
     if not pusher.setup_repository():
-        print("\n❌ Failed to setup repository")
+        print("\n Failed to setup repository")
         return
     
     # Create project files
@@ -432,12 +432,12 @@ def main():
     pusher.create_project_readme()
     
     # Commit and push
-    print(f"\n📤 Pushing to GitHub repository...")
+    print(f"\n Pushing to GitHub repository...")
     if pusher.commit_and_push():
-        print("\n🎉 Successfully pushed DMML project to GitHub!")
+        print("\n Successfully pushed DMML project to GitHub!")
         pusher.verify_push()
     else:
-        print("\n❌ Failed to push to GitHub")
+        print("\n Failed to push to GitHub")
         print("You may need to:")
         print("1. Setup GitHub authentication (SSH keys or personal access token)")
         print("2. Check repository permissions")

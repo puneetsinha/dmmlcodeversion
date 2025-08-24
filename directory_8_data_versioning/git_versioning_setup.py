@@ -26,10 +26,10 @@ class GitDataVersioning:
         try:
             result = subprocess.run(['git', '--version'], 
                                   capture_output=True, text=True, check=True)
-            print(f"✅ Git is installed: {result.stdout.strip()}")
+            print(f" Git is installed: {result.stdout.strip()}")
             return True
         except (subprocess.CalledProcessError, FileNotFoundError):
-            print("❌ Git is not installed or not accessible")
+            print(" Git is not installed or not accessible")
             print("Please install Xcode command line tools:")
             print("   xcode-select --install")
             return False
@@ -37,19 +37,19 @@ class GitDataVersioning:
     def initialize_repository(self):
         """Initialize Git repository if not already done."""
         if self.git_dir.exists():
-            print("✅ Git repository already initialized")
+            print(" Git repository already initialized")
             return True
         
         try:
             os.chdir(self.project_path)
             subprocess.run(['git', 'init'], check=True)
-            print("✅ Git repository initialized")
+            print(" Git repository initialized")
             
             # Configure Git user (if not already configured)
             self.configure_git_user()
             return True
         except subprocess.CalledProcessError as e:
-            print(f"❌ Failed to initialize Git repository: {e}")
+            print(f" Failed to initialize Git repository: {e}")
             return False
     
     def configure_git_user(self):
@@ -62,11 +62,11 @@ class GitDataVersioning:
                 # Configure default user info for students
                 subprocess.run(['git', 'config', 'user.name', 'Students 2024ab05134 2024aa05664'], check=True)
                 subprocess.run(['git', 'config', 'user.email', 'students@university.edu'], check=True)
-                print("✅ Git user configured")
+                print(" Git user configured")
             else:
-                print(f"✅ Git user already configured: {result.stdout.strip()}")
+                print(f" Git user already configured: {result.stdout.strip()}")
         except subprocess.CalledProcessError:
-            print("⚠️  Could not configure Git user - please configure manually")
+            print("  Could not configure Git user - please configure manually")
     
     def create_gitignore(self):
         """Create .gitignore file for ML project."""
@@ -135,7 +135,7 @@ mlruns/
         gitignore_path = self.project_path / ".gitignore"
         with open(gitignore_path, 'w') as f:
             f.write(gitignore_content)
-        print("✅ .gitignore file created")
+        print(" .gitignore file created")
     
     def create_data_version_tag(self, version_name, description=""):
         """Create a Git tag for data version."""
@@ -153,10 +153,10 @@ mlruns/
             tag_message = f"Data version {version_name} - {description}"
             subprocess.run(['git', 'tag', '-a', version_name, '-m', tag_message], check=True)
             
-            print(f"✅ Created data version tag: {version_name}")
+            print(f" Created data version tag: {version_name}")
             return True
         except subprocess.CalledProcessError as e:
-            print(f"❌ Failed to create version tag: {e}")
+            print(f" Failed to create version tag: {e}")
             return False
     
     def list_data_versions(self):
@@ -167,7 +167,7 @@ mlruns/
                                   capture_output=True, text=True, check=True)
             tags = result.stdout.strip().split('\n') if result.stdout.strip() else []
             
-            print("📋 Data Versions:")
+            print(" Data Versions:")
             if tags:
                 for tag in tags:
                     # Get tag info
@@ -177,7 +177,7 @@ mlruns/
             else:
                 print("   No versions found")
         except subprocess.CalledProcessError:
-            print("❌ Could not list versions")
+            print(" Could not list versions")
     
     def setup_github_remote(self, github_repo_url):
         """Setup GitHub remote repository."""
@@ -186,16 +186,16 @@ mlruns/
             
             # Add remote origin
             subprocess.run(['git', 'remote', 'add', 'origin', github_repo_url], check=True)
-            print(f"✅ GitHub remote added: {github_repo_url}")
+            print(f" GitHub remote added: {github_repo_url}")
             return True
         except subprocess.CalledProcessError:
             # Remote might already exist
             try:
                 subprocess.run(['git', 'remote', 'set-url', 'origin', github_repo_url], check=True)
-                print(f"✅ GitHub remote updated: {github_repo_url}")
+                print(f" GitHub remote updated: {github_repo_url}")
                 return True
             except subprocess.CalledProcessError as e:
-                print(f"❌ Failed to setup GitHub remote: {e}")
+                print(f" Failed to setup GitHub remote: {e}")
                 return False
     
     def push_to_github(self, include_tags=True):
@@ -205,16 +205,16 @@ mlruns/
             
             # Push main branch
             subprocess.run(['git', 'push', '-u', 'origin', 'main'], check=True)
-            print("✅ Pushed main branch to GitHub")
+            print(" Pushed main branch to GitHub")
             
             if include_tags:
                 # Push all tags
                 subprocess.run(['git', 'push', 'origin', '--tags'], check=True)
-                print("✅ Pushed all version tags to GitHub")
+                print(" Pushed all version tags to GitHub")
             
             return True
         except subprocess.CalledProcessError as e:
-            print(f"❌ Failed to push to GitHub: {e}")
+            print(f" Failed to push to GitHub: {e}")
             print("Note: Make sure you have GitHub authentication set up")
             return False
     
@@ -256,10 +256,10 @@ mlruns/
             with open(summary_path, 'w') as f:
                 json.dump(summary, f, indent=2)
             
-            print(f"✅ Version summary created: {summary_path}")
+            print(f" Version summary created: {summary_path}")
             return summary
         except Exception as e:
-            print(f"❌ Failed to create version summary: {e}")
+            print(f" Failed to create version summary: {e}")
             return None
 
 def setup_git_versioning_guide():
@@ -325,13 +325,13 @@ def setup_git_versioning_guide():
     
     print("BENEFITS OF GIT-BASED VERSIONING:")
     print("-" * 40)
-    print("✅ Complete project history in one place")
-    print("✅ Easy branching for experimental features")
-    print("✅ Collaborative development with team members")
-    print("✅ Integration with GitHub's collaboration tools")
-    print("✅ Automatic backup and distributed storage")
-    print("✅ Easy rollback to any previous version")
-    print("✅ Tagging system for meaningful version names")
+    print(" Complete project history in one place")
+    print(" Easy branching for experimental features")
+    print(" Collaborative development with team members")
+    print(" Integration with GitHub's collaboration tools")
+    print(" Automatic backup and distributed storage")
+    print(" Easy rollback to any previous version")
+    print(" Tagging system for meaningful version names")
     print()
 
 def main():
@@ -346,7 +346,7 @@ def main():
     
     # Check Git installation
     if not git_versioning.check_git_installation():
-        print("\n⚠️  Please install Git first, then run this script again.")
+        print("\n  Please install Git first, then run this script again.")
         return
     
     # Initialize repository
@@ -360,7 +360,7 @@ def main():
     
     if github_url:
         if git_versioning.setup_github_remote(github_url):
-            print("\n✅ GitHub remote configured successfully!")
+            print("\n GitHub remote configured successfully!")
             print("You can now push your versions to GitHub using:")
             print("   git push -u origin main")
             print("   git push origin --tags")
@@ -372,7 +372,7 @@ def main():
     
     if create_initial == 'y':
         if git_versioning.create_data_version_tag("v1.0-initial", "Initial ML pipeline with all components"):
-            print("✅ Initial version created!")
+            print(" Initial version created!")
     
     # List current versions
     git_versioning.list_data_versions()
@@ -380,7 +380,7 @@ def main():
     # Create version summary
     git_versioning.create_version_summary()
     
-    print("\n🎉 Git-based data versioning setup complete!")
+    print("\n Git-based data versioning setup complete!")
     print("You can now version your data using Git tags and push to GitHub.")
 
 if __name__ == "__main__":

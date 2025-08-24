@@ -3,19 +3,19 @@
 **Students: 2024ab05134, 2024aa05664**  
 **Target Repository**: [https://github.com/puneetsinha/BitsPilaniAIML](https://github.com/puneetsinha/BitsPilaniAIML)
 
-## 🎯 Ready to Push!
+## Ready to Push!
 
 I've prepared everything needed to push your complete DMML project to your existing GitHub repository. Your project will be added alongside your other BITS Pilani AIML files.
 
-## 📋 What's Ready
+## What's Ready
 
-✅ **Complete ML Pipeline Project** - All 10 components implemented  
-✅ **Professional Documentation** - README, guides, and reports  
-✅ **Git Setup Scripts** - Automated push to your repository  
-✅ **Project README** - Comprehensive documentation for GitHub  
-✅ **Version Control** - Tagged releases and commit history  
+**Complete ML Pipeline Project** - All 10 components implemented  
+**Professional Documentation** - README, guides, and reports  
+**Git Setup Scripts** - Automated push to your repository  
+**Project README** - Comprehensive documentation for GitHub  
+**Version Control** - Tagged releases and commit history  
 
-## 🚀 Simple 3-Step Process
+## Simple 3-Step Process
 
 ### Step 1: Install Git
 ```bash
@@ -35,7 +35,7 @@ python directory_8_data_versioning/push_to_github.py
 ### Step 3: Verify on GitHub
 Visit [https://github.com/puneetsinha/BitsPilaniAIML](https://github.com/puneetsinha/BitsPilaniAIML) to see your uploaded project!
 
-## 📊 What Will Be Uploaded
+## What Will Be Uploaded
 
 Your GitHub repository will contain:
 
@@ -61,18 +61,18 @@ BitsPilaniAIML/
     └── README.md
 ```
 
-## 🎉 Project Highlights
+## Project Highlights
 
 Your uploaded project will showcase:
 
-### 📈 **Impressive Results**
+### **Impressive Results**
 - **39,604 records** processed across 2 datasets
 - **204 features** engineered with advanced techniques
 - **8 ML models** trained and evaluated
 - **95% data quality** score achieved
 - **100% pipeline** success rate
 
-### 🛠️ **Production-Ready Components**
+### 🛠 **Production-Ready Components**
 - Multi-source data ingestion with fallback mechanisms
 - Comprehensive data validation with CSV reports
 - Advanced feature engineering (139 new features)
@@ -80,14 +80,14 @@ Your uploaded project will showcase:
 - Model training with 4 algorithms + hyperparameter tuning
 - Complete pipeline orchestration with monitoring
 
-### 📚 **Professional Documentation**
+###  **Professional Documentation**
 - Comprehensive README with project overview
 - Detailed component documentation
 - CSV reports exactly as required by assignment
 - Git-based version control setup
 - Complete technical implementation guides
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
 ### If Git Installation Fails
 ```bash
@@ -104,17 +104,17 @@ The script will provide specific guidance for:
 ### If You Need Help
 All scripts include detailed error messages and next steps. The automation handles most common issues automatically.
 
-## 🎓 Academic Benefits
+##  Academic Benefits
 
 Having your project on GitHub provides:
 
-✅ **Professional Portfolio** - Showcase your ML engineering skills  
-✅ **Version History** - Complete development timeline  
-✅ **Collaboration Ready** - Easy sharing with instructors/peers  
-✅ **Backup Security** - Your work is safely stored in the cloud  
-✅ **Industry Standard** - Using professional development tools  
+ **Professional Portfolio** - Showcase your ML engineering skills  
+ **Version History** - Complete development timeline  
+ **Collaboration Ready** - Easy sharing with instructors/peers  
+ **Backup Security** - Your work is safely stored in the cloud  
+ **Industry Standard** - Using professional development tools  
 
-## 🌟 Final Result
+##  Final Result
 
 Once uploaded, your GitHub repository will demonstrate:
 
@@ -123,12 +123,12 @@ Once uploaded, your GitHub repository will demonstrate:
 - **Production Readiness** - Scalable, monitored, documented systems
 - **Academic Excellence** - Meeting and exceeding assignment requirements
 
-## 📞 Support
+##  Support
 
 All scripts include comprehensive error handling and guidance. The automated setup handles most scenarios, but detailed manual instructions are also provided in the component documentation.
 
 ---
 
-**Your complete DMML project is ready to showcase your machine learning engineering expertise on GitHub!** 🚀
+**Your complete DMML project is ready to showcase your machine learning engineering expertise on GitHub!** 
 
 Repository: [https://github.com/puneetsinha/BitsPilaniAIML](https://github.com/puneetsinha/BitsPilaniAIML)

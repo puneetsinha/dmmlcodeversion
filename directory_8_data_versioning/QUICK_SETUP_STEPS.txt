@@ -12,7 +12,7 @@ Wait for installation to complete, then verify:
 
 STEP 2: GITHUB REPOSITORY READY
 ---------------------------------
-✅ Using existing repository: https://github.com/puneetsinha/BitsPilaniAIML
+ Using existing repository: https://github.com/puneetsinha/BitsPilaniAIML
 This repository is already set up and ready to receive your DMML project!
 
 STEP 3: RUN AUTOMATED SETUP
@@ -75,12 +75,12 @@ Large files warning:
 
 WHAT YOU GET
 ============
-✅ Complete project backup on GitHub
-✅ Version history of all your work
-✅ Easy collaboration with team members
-✅ Professional version control system
-✅ Ability to rollback to any previous version
-✅ Tagged versions for major milestones
+ Complete project backup on GitHub
+ Version history of all your work
+ Easy collaboration with team members
+ Professional version control system
+ Ability to rollback to any previous version
+ Tagged versions for major milestones
 
 NEXT STEPS
 ==========
@@ -94,4 +94,4 @@ NEXT STEPS
 
 3. Use GitHub's collaboration features (issues, pull requests, etc.)
 
-Your assignment is now professionally version controlled! 🎉
+Your assignment is now professionally version controlled! 

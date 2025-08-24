@@ -8,12 +8,12 @@ This component implements Git-based data versioning for our ML pipeline project.
 
 ## Why Git-Based Versioning?
 
-✅ **Integrated Workflow**: Code and data versions in one repository  
-✅ **GitHub Integration**: Leverage GitHub's collaboration features  
-✅ **Familiar Tools**: Uses standard Git commands  
-✅ **Free Hosting**: GitHub provides free repository hosting  
-✅ **Team Collaboration**: Easy sharing and collaboration  
-✅ **Branching Support**: Experimental data versions  
+ **Integrated Workflow**: Code and data versions in one repository  
+ **GitHub Integration**: Leverage GitHub's collaboration features  
+ **Familiar Tools**: Uses standard Git commands  
+ **Free Hosting**: GitHub provides free repository hosting  
+ **Team Collaboration**: Easy sharing and collaboration  
+ **Branching Support**: Experimental data versions  
 
 ## Quick Start
 
@@ -271,10 +271,10 @@ git remote set-url origin https://github.com/username/repo.git
 ## Summary
 
 This Git-based versioning system provides:
-- ✅ Complete project history
-- ✅ Easy collaboration with GitHub
-- ✅ Professional version control
-- ✅ Integrated documentation
-- ✅ Reliable backup system
+-  Complete project history
+-  Easy collaboration with GitHub
+-  Professional version control
+-  Integrated documentation
+-  Reliable backup system
 
-Your ML pipeline now has enterprise-grade version control! 🚀
+Your ML pipeline now has enterprise-grade version control! 
