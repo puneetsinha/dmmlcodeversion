@@ -1,0 +1,98 @@
+{
+  "version_name": "v1.0-complete-pipeline",
+  "description": "Complete ML pipeline with all datasets and models",
+  "created_timestamp": "2025-08-24T15:18:57.912317",
+  "git_commit_hash": "165429c856a8fd18c5304d53d033f66b89731c54",
+  "statistics": {
+    "total_files": 243,
+    "total_size_bytes": 120638867,
+    "total_size_mb": 115.05,
+    "file_types": {
+      ".csv": 4,
+      ".json": 17,
+      ".txt": 2,
+      ".parquet": 214,
+      ".db": 1,
+      ".pkl": 5
+    }
+  },
+  "data_directories": {
+    "raw_data": {
+      "exists": true,
+      "file_count": 2
+    },
+    "transformed_data": {
+      "exists": true,
+      "file_count": 8
+    },
+    "directory_3_raw_data_storage/data_lake": {
+      "exists": true,
+      "file_count": 16
+    },
+    "feature_store": {
+      "exists": true,
+      "file_count": 231
+    },
+    "models/trained_models": {
+      "exists": true,
+      "file_count": 13
+    }
+  },
+  "file_list": [
+    "raw_data/huggingface_census.csv",
+    "raw_data/kaggle_telco_churn.csv",
+    "transformed_data/telco_customer_churn_transformed.csv",
+    "transformed_data/transformation_summary_20250823_203223.json",
+    "transformed_data/transformation_summary_20250823_203223.txt",
+    "transformed_data/telco_customer_churn_transformed.parquet",
+    "transformed_data/adult_census_income_transformed.csv",
+    "transformed_data/adult_census_income_transformed.parquet",
+    "directory_3_raw_data_storage/data_lake/storage_report.txt",
+    "directory_3_raw_data_storage/data_lake/data_catalog.json",
+    "directory_3_raw_data_storage/data_lake/source=huggingface/data_type=demographics/year=2025/month=08/day=23/adult_census_income_20250823_200247.parquet",
+    "directory_3_raw_data_storage/data_lake/source=huggingface/data_type=demographics/year=2025/month=08/day=23/adult_census_income_20250823_200247_metadata.json",
+    "directory_3_raw_data_storage/data_lake/source=kaggle/data_type=customer_churn/year=2025/month=08/day=23/telco_customer_churn_20250823_200247_metadata.json",
+    "directory_3_raw_data_storage/data_lake/source=kaggle/data_type=customer_churn/year=2025/month=08/day=23/telco_customer_churn_20250823_200247.parquet",
+    "feature_store/feature_catalog.json",
+    "feature_store/feature_store_summary_20250823_203558.json",
+    "feature_store/feature_store.db",
+    "feature_store/feature_quality_report.json",
+    "feature_store/registry/tables/eb222671af1bef79_v20250823_203557.parquet",
+    "feature_store/registry/tables/b175512ab79fc27d_v20250823_203557.parquet",
+    "feature_store/registry/tables/ea1fffe0dca3ff0f_v20250823_203557.parquet",
+    "feature_store/registry/tables/0dd5c30ba1295645_v20250823_203557.parquet",
+    "feature_store/registry/tables/661347f6f9c627b7_v20250823_203557.parquet",
+    "feature_store/registry/tables/b760423dfd32ffb7_v20250823_203557.parquet",
+    "feature_store/registry/tables/22f145551f695064_v20250823_203557.parquet",
+    "feature_store/registry/tables/2974c2afb3de96d1_v20250823_203557.parquet",
+    "feature_store/registry/tables/a9010867e5e620e8_v20250823_203557.parquet",
+    "feature_store/registry/tables/4f94784323e217ca_v20250823_203557.parquet",
+    "feature_store/registry/tables/3176058ba6e42d04_v20250823_203557.parquet",
+    "feature_store/registry/tables/bb358bf6e0964454_v20250823_203557.parquet",
+    "feature_store/registry/tables/564c3e4327b20861_v20250823_203557.parquet",
+    "feature_store/registry/tables/79ab0a13f67a52f4_v20250823_203557.parquet",
+    "feature_store/registry/tables/446f328ca5df1012_v20250823_203557.parquet",
+    "feature_store/registry/tables/f116f03b4efd25ae_v20250823_203557.parquet",
+    "feature_store/registry/tables/db8a7497ae3060bc_v20250823_203557.parquet",
+    "feature_store/registry/tables/cee902ae699eabb3_v20250823_203557.parquet",
+    "feature_store/registry/tables/57b30369d42ae068_v20250823_203557.parquet",
+    "feature_store/registry/tables/feb62022ba9222f7_v20250823_203557.parquet",
+    "feature_store/registry/tables/1c996ce5b04d39bb_v20250823_203557.parquet",
+    "feature_store/registry/tables/fac1cf93d3c1dc65_v20250823_203557.parquet",
+    "feature_store/registry/tables/274a3b29348472d7_v20250823_203557.parquet",
+    "feature_store/registry/tables/81129489c7115cc2_v20250823_203557.parquet",
+    "feature_store/registry/tables/2acdfcd5ab7b687f_v20250823_203557.parquet",
+    "feature_store/registry/tables/57e1045042e0ae40_v20250823_203557.parquet",
+    "feature_store/registry/tables/321ca1a4a8dca593_v20250823_203557.parquet",
+    "feature_store/registry/tables/555434f26d9e4c38_v20250823_203557.parquet",
+    "feature_store/registry/tables/6f97e29e7354078c_v20250823_203557.parquet",
+    "feature_store/registry/tables/8c811265e5cea70d_v20250823_203557.parquet",
+    "feature_store/registry/tables/973bf989acb169a6_v20250823_203557.parquet",
+    "feature_store/registry/tables/113df32760399b6a_v20250823_203557.parquet"
+  ],
+  "environment": {
+    "python_version": "3.11.7 (main, Dec 15 2023, 12:09:56) [Clang 14.0.6 ]",
+    "working_directory": "/Users/puneetsinha/DMML",
+    "timestamp": "2025-08-24 15:18:57"
+  }
+}
